@@ -1,0 +1,190 @@
+body {
+  font-family: "Gothic A1", sans-serif;
+}
+
+#clothing_container {
+  display: flex;
+  margin: auto;
+}
+#clothing_navbar {
+  display: flex;
+  justify-content: space-around;
+}
+#clothing_divs {
+  margin-left: 30px;
+  width: 80%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+.clothing_Inner_div {
+  text-align: center;
+  width: 280px;
+  height: 481px;
+}
+.clothing_Inner_div img {
+  width: 280px;
+  cursor: pointer;
+}
+.clothing_head {
+  display: flex;
+
+  justify-content: space-between;
+  text-align: left;
+  text-decoration: underline;
+}
+.span_new {
+  font-size: 18px;
+  text-decoration: overline;
+}
+
+#StarImage {
+  margin-top: 7%;
+  width: 20px;
+  height: 20px;
+  margin-right: 20px;
+}
+#StarImage:hover {
+  background-color: grey;
+}
+
+#slidebar {
+  width: 20%;
+
+  margin-top: 60px;
+}
+#sort {
+  margin-top: 5px;
+  height: 30px;
+}
+
+/* Responsive  */
+
+@media only screen and (min-width: 421px) and (max-width: 780px) {
+  #clothing_divs {
+    grid-template-columns: repeat(2, 1fr);
+    margin-left: -10px;
+    gap: 20px;
+  }
+}
+@media only screen and (min-width: 70px) and (max-width: 420px) {
+  #clothing_divs {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+/* Customize the label (the container) */
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #ccc;
+  font-weight: bold;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 7px;
+  top: 5px;
+  width: 5px;
+  height: 7px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+#slidebar h1 {
+  font-size: 20px;
+  margin-top: -1px;
+  margin-bottom: -8px;
+  text-decoration: underline;
+}
+#slidebar li {
+  margin-left: -35px;
+  margin-top: 10px;
+  font-size: 17px;
+}
+#slidebar li:hover {
+  font-size: 19px;
+  font-weight: 800;
+  cursor: pointer;
+}
+#kids_clothing:hover {
+  cursor: pointer;
+  font-size: 18px;
+}
+#mens_clothing:hover {
+  cursor: pointer;
+  font-size: 18px;
+}
+#womens_clothing:hover {
+  cursor: pointer;
+  font-size: 18px;
+}
+
+
+/*Footer li part of  men women page */
+#footers_men_women_kid{
+  border-top: 1px grey solid;
+}
+
+#footers_men_women_kid ul li{
+  margin-top: 20px;
+}
+.footer_header{
+font-weight: bold;
+font-size: 18px;
+}
+#footers_header_part{
+  font-size: 23px;
+  text-align: center;
+}
