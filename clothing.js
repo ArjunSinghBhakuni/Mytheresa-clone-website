@@ -1,11 +1,11 @@
-import {data,clothing_container,data1} from "./data.js" 
+import {data,clothing_container,data1,footers_men_women_kid} from "./data.js" 
 console.log(data)
 
 
 //Data appned on clothing container 
 read("clothing_container").innerHTML = clothing_container();
 
-
+read("footers_men_women_kid").innerHTML=footers_men_women_kid();
 
 //By defalut mens data selected
 append(data.men)
