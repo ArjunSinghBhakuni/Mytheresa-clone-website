@@ -10,7 +10,7 @@ function navbar(){
     </div>
     <div id="box12">
         <a class="a2" href=""><h3>Signup for Newsletter</h3></a>
-        <a class="a2" href=""><h3>Login</h3></a>
+        <a class="a2" href="./Signup_Login/signup.html"><h3>Login</h3></a>
         <a class="a2" href="">
           <div><h3>My account</h3>
           </div></a> 
