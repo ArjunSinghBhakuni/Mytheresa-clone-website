@@ -2,26 +2,31 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>wishlist</title>
 </head>
 <style>
-    h2 {
-        color: #000;
-        font-size: 18px;
-        text-transform: uppercase;
+    body {
+        color: black;
+
     }
 
     p {
         color: rgb(112, 92, 92);
     }
 
+    #container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
     .button {
         padding: 15px;
         border-radius: 5px;
-        text-transform:uppercase;
+        text-transform: uppercase;
         border: 0;
         background-color: #e0cece;
         color: #000;
@@ -30,18 +35,97 @@
         margin: auto;
         margin-bottom: 20px;
     }
+
+    #container div {
+        box-sizing: border-box;
+        width: 60%;
+        height: 60%;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
+
+    img {
+        width: 60%;
+        height: 60%;
+    }
+
+    .small {
+        text-align: center;
+        margin: auto;
+        margin-top: 15px;
+        padding: 15px;
+    }
+
+    button {
+        padding: 15px;
+        border-radius: 5px;
+        border: 0;
+        background-color: rgb(171, 144, 144);
+        color: #fff;
+        font-weight: 500;
+        cursor: pointer;
+        margin: auto;
+        margin-bottom: 20px;
+    }
 </style>
 
 <body>
     <div id="itemlist">
-        <h2>There are no products on your wishlist.</h2>
+        <h3>There are no products on your wishlist.</h3>
+    </div>
+    <div id="container"></div>
+    <div class="small">
         <p>Check out our new arrivals and start adding to your wishlist now!</p>
-        <div><a class="button" href="https://www.mytheresa.com/int_en/new-arrivals/what-s-new-this-week-1.html">Shop new
-                arrivals</a></div>
+        <div><a class="button" href="../clothing.html">Shop new arrivals</a></div>
+
     </div>
 </body>
 
 </html>
 <script>
+    let data = JSON.parse(localStorage.getItem("wishlist"));
+    console.log(data);
 
+    let total = data.reduce(function (sum, ele, index, arr) {
+        return sum + Number(ele.price);
+    }, 0);
+
+    let length = data.length;
+    console.log(length);
+
+    console.log(total);
+
+    document.querySelector(
+        "h3"
+    ).innerText = ` You have ${length} items in wishlist and  total is Rs ${total}`;
+
+    data.map(function (ele, index) {
+        var box = document.createElement("div");
+
+        var img = document.createElement("img");
+        img.src = ele.img;
+
+        var title = document.createElement("h4");
+        title.textContent = ele.title;
+
+        var price = document.createElement("h4");
+        price.innerText = ele.price;
+
+        var btn = document.createElement("button");
+        btn.innerText = "Remove";
+        btn.addEventListener("click", function () {
+            removeItem(ele, index);
+        });
+
+        box.append(img, name, price, btn);
+
+        document.querySelector("#container").append(box);
+    });
+
+    function removeItem(ele, index) {
+        console.log(ele, index);
+        data.splice(index, 1);
+        console.log(data);
+        localStorage.setItem("wishlist", JSON.stringify(data));
+        window.location.reload();
+    }
 </script>
