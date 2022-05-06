@@ -1,18 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My account</title>
+    <script src="https://kit.fontawesome.com/24c494a6b6.js" crossorigin="anonymous"></script>
+
 </head>
+<style>
+    body {
+        font-family: "roboto";
+        letter-spacing: .8px;
+        background-color: #fff;
+    }
+
+    a {
+        text-decoration: none;
+        color: rgb(157, 129, 129);
+        line-height: normal;
+    }
+
+    a:hover {
+        color: black;
+    }
+
+    ul {
+        list-style: none;
+        padding: 10px;
+        margin: auto;
+        font-size: 18px;
+    }
+
+    button {
+        padding: 15px;
+        border-radius: 5px;
+        text-transform: uppercase;
+        border: 0;
+        color: #000;
+        cursor: pointer;
+        text-decoration: none;
+        margin: auto;
+        margin-top: 20px;
+        position: fixed;
+    }
+
+    .bg-container {
+        display: flex;
+        gap: 5s0px;
+        padding: 20px;
+        margin: auto;
+    }
+
+    .myacc .col {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    
+</style>
+
 <body>
     <div id="page">
         <div class="header"></div>
 
         <div class="bg-container">
-            <div class=""></div>
+            <div class="left">
+                <h2>My Account</h2>
+                <ul>
+                    <li><a href="./acc.html">my overview</a></li>
+                    <li><a href="./acc.html">my account information</a></li>
+                    <li><a href="./acc.html">my address book</a></li>
+                    <li><a href="#">my orders</a></li>
+                    <li><a href="#">my gift certificates</a></li>
+                    <li><a href="./wishlist.html">my wishlist</a></li>
+                </ul>
+            </div>
+
+            <div class="right">
+                <div class="myacc">
+                    <div class="title">
+                        <h2><strong>MY OVERVIEW</strong></h2>
+                    </div>
+                    <div class="welcm">
+                        <p>Hello,</p>
+                        <p>From your My Account Dashboard you have the ability to view a snapshot of your recent account
+                            activity and update your account information. Select a link below to view or edit
+                            information.</p>
+                    </div>
+                    <div class="info">
+                        <h2>my account information</h2>
+                        <div class="col">
+                            <div class="col1">
+                                <p>Name:</p>
+                                <p>Email:</p>
+                            </div>
+                            <div class="col2">
+                                <p>
+                                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                    <a href="#">Edit</a>
+                                </p>
+                                <p>
+                                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                    <a href="#">Change Password</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="addre">
+                        <h2>my address book</h2>
+                        <div class="col">
+                            <div class="col1">
+                                <p><strong>Default Billing Address</strong></p>
+                                <p>
+                                    You have not set a default billing address.
+                                </p>
+                                <p>
+                                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                    <a href="#">change</a>
+                                </p>
+                            </div>
+                            <div class="col2">
+                                <p><strong>Default Shipping Address</strong></p>
+                                <p>
+                                    You have not set a default shipping address
+                                </p>
+                                <p> <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                    <a href="#">change</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="myacc">
+                    <h2>Easy-access Login</h2>
+                    <form action="#">
+                        <div><input type="checkbox" title="
+                            Do not permit automatic identification prior to logging in!" value="0" id="checkbox">
+
+                            Do not permit automatic identification prior to logging in!
+                            <!-- <i class="fa fa-circle-thin" aria-hidden="true"></i> -->
+                            <!-- <button type="submit" class="btn"  title="Save">SAVE</button> -->
+
+                        </div>
+                        <div>
+                            <button type="submit" class="btn" title="Save">SAVE</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </body>
+
 </html>
