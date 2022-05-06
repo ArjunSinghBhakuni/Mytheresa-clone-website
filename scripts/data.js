@@ -1255,12 +1255,12 @@ let data1 = {
   ]
 }
 
- 
-
- 
 
 
-function clothing_container (){
+
+
+
+function clothing_container() {
   return `
   <div id="slidebar">
   <div class="title">
@@ -1428,8 +1428,8 @@ function clothing_container (){
   `
 }
 
-function footers_men_women_kid(){
-return `
+function footers_men_women_kid() {
+  return `
 
 <ul>
 <li id="footers_header_part" class="footer_header"> DESIGNER CLOTHING FOR MEN </li> 
@@ -1471,10 +1471,10 @@ Whether it's fresh-off-the-runway styles or timeless essentials to transcend the
 }
 
 
-export {data , clothing_container,data1,footers_men_women_kid};
+export { data, clothing_container, data1, footers_men_women_kid };
 
 
- 
+
 
 
   //   // old
