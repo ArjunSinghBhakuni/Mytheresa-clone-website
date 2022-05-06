@@ -18,6 +18,7 @@ function mychange() {
 
 //function for append
 let wishArr = JSON.parse(localStorage.getItem("wishlist")) || []
+let bagArr = JSON.parse(localStorage.getItem("bag")) || []
 
 function append(data) {
 
@@ -96,12 +97,28 @@ function append(data) {
         btn_for_add_bag.innerHTML = 'ADD TO SHOPPING BAG';
         btn_for_add_wishlist.innerHTML = 'ADD TO WISHLIST';
 
+// click on size
+
+        // document.getElementsByClassName("size_containers").addEventListener("click",size)
+        // function size(){
+             
+        // }
+        btn_for_add_bag.addEventListener("click",addtobag)
+        function addtobag(){
+            store_bag(Product_detail)
+        }
+ btn_for_add_wishlist.addEventListener("click",addtowish)
+ function addtowish(){
+    store_wishlist(Product_detail)
+ }
+
+
 
         div_contains_only_h4_i_tag.append(heading_h2, cross_icon_cancelled);
         hover_container.append(div_contains_only_h4_i_tag, div_hole_size, btn_for_add_bag, btn_for_add_wishlist)
         wish.onclick = () => {
             wish.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVfrpwFrsaM3K21qU5f2j_HPyQbQ9zIEjmbOPj-PaYougvdOiJMdrnLP4dsxLhtI1EAmQ&usqp=CAU"
-            store_wishlist(Product_detail)
+            
                 // console.log("i'am arun");
                 // start here hover works
             document.querySelector('#hover-items-show').style.display = 'block';
@@ -133,9 +150,17 @@ function store_wishlist(elem) {
 
     console.log(wishArr)
     wishArr.push(elem)
-        // alert("Product Added to wishlist")
+         alert("Product Added to wishlist")
 
     localStorage.setItem("wishlist", JSON.stringify(wishArr))
+}
+function store_bag(elem) {
+
+    console.log(wishArr)
+    bagArr.push(elem)
+          alert("Product Added to Bag")
+
+    localStorage.setItem("bag", JSON.stringify(bagArr))
 }
 
 

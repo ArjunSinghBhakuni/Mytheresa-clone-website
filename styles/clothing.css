@@ -282,12 +282,17 @@ ul {
     left: 11em;
     top: 1em;
     font-size: 22px;
+    
 }
-
+/* .take_all_size_inner :hover{
+    background-color: 1px solid blue;
+} */
 .size_containers p {
     line-height: 6px;
+    cursor: pointer;
 }
 
+ 
 .teke_flex-thing {
     display: flex;
 }
