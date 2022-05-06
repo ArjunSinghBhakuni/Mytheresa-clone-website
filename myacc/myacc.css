@@ -1,0 +1,21 @@
+body{
+    background-color: #fff;
+    color: #000;
+    letter-spacing: .6px;
+}
+.page > header{
+    padding: 0 10px 15px;
+}
+.cate{
+    color: #d3d3d3;
+    font-size: 20px;
+    justify-content: space-between;
+    display: flex;
+    font-size: 15px;
+    margin: 0;
+}
+a{
+    text-decoration: none;
+    color: black;
+
+}
