@@ -133,6 +133,7 @@ a{
    
     width: 90%;
     margin: auto;
+    cursor: pointer;
    
    
 
@@ -169,7 +170,12 @@ a{
   }
   #navbar{
       background-color: white;
+      cursor: pointer;
       
+  }
+
+  .dropdown {
+    cursor: pointer;
   }
   /* Add a red background color to navbar links on hover */
   /* .navbar a:hover, .dropdown:hover .dropbtn {
