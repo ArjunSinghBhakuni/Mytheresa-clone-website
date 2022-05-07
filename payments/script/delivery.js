@@ -10,7 +10,13 @@ let checkdetails = () => {
     let postcode = form.postcode.value;
     let city = form.city.value;
     let mobile = form.mobile.value;
-
+    let country = document.querySelector('#selectcountry').value;
+    let change_content = document.querySelector('#change-content');
+    if (country == 'in') {
+        change_content.innerHTML = 'DHL Express  i€ 0.00 2-4 business days delivery time '
+    } else {
+        change_content.innerHTML = 'Express  i€ 0.00 2-4 business days delivery time '
+    }
     if (name == '') {
         document.querySelector('.name').style.display = 'block';
     } else {
@@ -45,20 +51,8 @@ let checkdetails = () => {
         window.location.href = 'payment.html';
     }
 }
-let checkwhichdelivery = () => {
-    let country = document.querySelector('#selectcountry').value;
-    let change_content = document.querySelector('#change-content');
-    console.log("arun")
-    if (country == 'in') {
-        change_content.innerHTML = 'DHL Express  i€ 0.00 2-4 business days delivery time '
-    } else if (country == '') {
-
-    } else {
-        change_content.innerHTML = 'Express  i€ 0.00 2-4 business days delivery time '
-    }
-}
 document.querySelector('#takeaction').addEventListener('click', checkdetails);
-document.querySelector('#selectcountry').addEventListener('select', checkwhichdelivery);
+
 let GoCart = () => {
     window.location.href = "../MyCart.html"
 }
@@ -105,8 +99,8 @@ let hiddenthehiddenitems = () => {
 
     }
     // mouseleave
-document.querySelector('.about-info').addEventListener('mouseenter', showthehiddenitems);
-document.querySelector('.about-info').addEventListener('mouseleave', hiddenthehiddenitems);
+document.querySelector('.about-info').addEventListener('mouseenter', showthehiddenitems)
+document.querySelector('.about-info').addEventListener('mouseleave', hiddenthehiddenitems)
 
 let GoBackCartBagPage = () => {
     window.location.href = '../MyCart.html';
