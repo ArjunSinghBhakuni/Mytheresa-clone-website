@@ -1,138 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>wishlist</title>
-</head>
-<style>
-    body {
-        color: black;
-
+  </head>
+  <style>
+    h2 {
+      color: #000;
+      font-size: 18px;
+      text-transform: uppercase;
     }
-
     p {
-        color: rgb(112, 92, 92);
+      color: rgb(112, 92, 92);
     }
-
-    #container {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 15px;
-    }
-
     .button {
-        padding: 15px;
-        border-radius: 5px;
-        text-transform: uppercase;
-        border: 0;
-        background-color: #e0cece;
-        color: #000;
-        cursor: pointer;
-        text-decoration: none;
-        margin: auto;
-        margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      text-transform: uppercase;
+      border: 0;
+      background-color: #E0CECE;
+      color: #000;
+      cursor: pointer;
+      text-decoration: none;
+      margin: auto;
+      margin-bottom: 20px;
+      position: fixed;
     }
-
-    #container div {
-        box-sizing: border-box;
-        width: 60%;
-        height: 90%;
-        margin: auto;
-        padding: 10px;
-        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    #cross {
+      width: 10px;
+      height: 10px;
+      margin-left: 90%;
+      cursor: pointer;
     }
-
-    h4 {
-        text-align: center;
+    #wishlist_item {
+      margin: auto;
+      width: 80%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
     }
-
-    img {
-        width: 100%;
-        height: 60%;
+    #wishlist_item div {
+      text-align: center;
     }
-
-    .small {
-        text-align: center;
-        margin: auto;
-        margin-top: 15px;
-        padding: 15px;
+    #pimage {
+      width: 80%;
     }
-
-    button {
-        padding: 15px;
-        border-radius: 5px;
-        border: 0;
-        background-color: rgb(171, 144, 144);
-        color: #fff;
-        font-weight: 600;
-        cursor: pointer;
-        margin: auto;
-        margin-bottom: 20px;
-        position: fixed;
+    #wishlist_item div button {
+      border: 0px;
+      background-color: black;
+      cursor: pointer;
+      color: white;
+      padding: 10px 15px 10px 15px;
+      width: 100%;
     }
-</style>
-
-<body>
-    <div id="itemlist">
-        <h3>There are no products on your wishlist.</h3>
-    </div>
-    <div id="container"></div>
-    <div class="small">
-        <p>Check out our new arrivals and start adding to your wishlist now!</p>
-        <div><a class="button" href="../clothing.html">Shop new arrivals</a></div>
-
-    </div>
-</body>
-
+    #wishlist_item div button:hover {
+      opacity: 50%;
+    }
+    #itemlist {
+      margin-top: 10px;
+      margin-left: 35%;
+    }
+    #noOfItemInWishList {
+      margin-left: 10%;
+     
+    }
+  </style>
+  <body>
+    <div id="itemlist"></div>
+    <div id="noOfItemInWishList"></div>
+    <div id="wishlist_item"></div>
+  </body>
 </html>
 <script>
-    let data = JSON.parse(localStorage.getItem("wishlist"));
-    console.log(data);
+  let wishdata = JSON.parse(localStorage.getItem("wishlist"));
+  let bagData = JSON.parse(localStorage.getItem("bag")) || [];
+  //console.log(bagData)
+  let container = read("wishlist_item");
+  let itemlist = read("itemlist");
+  let items = read("noOfItemInWishList");
 
-    let total = data.reduce(function (sum, ele, index, arr) {
-        return sum + Number(ele.price);
-    }, 0);
+  if (wishdata.length === 0) {
+    //window.location.reload()
+    items.innerHTML = null;
 
-    let length = data.length;
-    console.log(length);
+    let h2 = create("h2");
+    h2.innerText = "There are no products on your wishlist.";
+    let p = create("p");
+    p.innerText =
+      "Check out our new arrivals and start adding to your wishlist now!";
+    let div = create("div");
+    div.setAttribute("class", "button");
+    div.innerText = "Shop now";
+   
+    div.onclick = () => {
+      window.location.href = "clothing.html";
+    };
 
-    console.log(total);
-
-    document.querySelector(
-        "h3"
-    ).innerText = ` You have ${length} items in wishlist and  total is € ${total}`;
-
-    data.map(function (ele, index) {
-        var box = document.createElement("div");
-
-        var img = document.createElement("img");
-        img.src = ele.img.img1;
-
-        var productname = document.createElement("h4");
-        productname.innerText = ele.title;
-
-        var price = document.createElement("h4");
-        price.innerText = `€ ${ele.price}`;
-
-        var btn = document.createElement("button");
-        btn.innerText = "REMOVE";
-        btn.addEventListener("click", function () {
-            removeItem(ele, index);
-        });
-
-        box.append(img, productname, price, btn);
-
-        document.querySelector("#container").append(box);
-    });
-
-    function removeItem(ele, index) {
-        console.log(ele, index);
-        data.splice(index, 1);
-        console.log(data);
-        localStorage.setItem("wishlist", JSON.stringify(data));
-        window.location.reload();
+    itemlist.append(h2, p, div);
+  } else {
+    console.log(wishdata);
+    display(wishdata);
+    function display(wishdata) {
+      items.innerText = `Items (${wishdata.length})`;
+      
+      container.innerHTML = null;
+      wishdata.forEach(function (elem, index) {
+        //console.log(elem)
+        let div = create("div");
+        let cross = create("img");
+        cross.setAttribute("id", "cross");
+        cross.src =
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Saint_Andrew%27s_cross_black.svg/1200px-Saint_Andrew%27s_cross_black.svg.png";
+        cross.onclick = () => {
+          remove(elem, index);
+        };
+        
+        let img = create("img");
+        img.setAttribute("id", "pimage");
+        img.src = elem.img.img1;
+        let productname = create("h4");
+        productname.innerText = elem.title;
+        let price = create("h4");
+        price.innerText = ` € ${elem.price}`;
+        
+        let moveBag = create("button");
+        moveBag.innerText = "Move To Bag";
+        moveBag.onclick = () => {
+          movetobag(elem, index);
+        };
+        div.append(cross, img, productname, price, moveBag);
+        container.append(div);
+      });
     }
+  }
+  
+  function movetobag(elem, index) {
+    let ele = wishdata.splice(index, 1);
+    console.log(ele);
+    bagData.push(ele);
+
+    alert("Item is Add to Bag");
+    localStorage.setItem("wishlist", JSON.stringify(wishdata));
+    localStorage.setItem("bag", JSON.stringify(bagData));
+    display(wishdata);
+  }
+  
+  function remove(elem, index) {
+    let ele = wishdata.splice(index, 1);
+    console.log(ele);
+    alert("Item Removed From Wishlist");
+    localStorage.setItem("wishlist", JSON.stringify(wishdata));
+    display(wishdata);
+  }
+  function read(id) {
+    return document.getElementById(id);
+  }
+  function create(id) {
+    return document.createElement(id);
+  }
 </script>
