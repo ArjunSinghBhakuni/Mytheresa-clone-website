@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Swiper demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="index.css">
+    <script src="https://kit.fontawesome.com/24c494a6b6.js" crossorigin="anonymous"></script>
+
+    <!-- Demo styles -->
+    <style>
+        /* html,
+      body {
+        position: relative;
+        height: 100%;
+      } */
+
+        body {
+            /* background: #eee; */
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+
+        .swiper {
+            width: 500px;
+            height: 500px;
+            padding: 40px;
+            /* width: 100%;
+        height: 100%; */
+        }
+
+        .swiper-slide {
+            background-position: center;
+            background-size: cover;
+            width: 500px;
+            height: 500px;
+            /* text-align: center;
+        font-size: 18px;
+        background: #fff; */
+
+            /* Center slide text vertically */
+            /* display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center; */
+        }
+
+        .swiper-slide img {
+            /* display: block; */
+            width: 100%;
+            height: 500px;
+            object-fit: contain;
+        }
+
+        #container {
+            width: 100%;
+            display: flex;
+        }
+
+        #left {
+            width: 60%;
+            /* border: 1px solid red; */
+        }
+
+        #left #bottom{
+            margin: 10px;
+            width: 100%;
+            display: flex;
+            height: 200px;
+            /* border: 1px solid red; */
+        }
+
+        #bottom div{
+            width: 100%;
+            height: auto;
+            /* border: 1px solid blue; */
+        }
+
+        #bottom img{
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+        }
+
+        #right {
+            width: 40%;
+            padding: 2%;
+            /* border: 1px solid red; */
+        }
+
+        #options {
+            width: 200px;
+            height: 30px;
+            text-align: center;
+            border: 2px solid whitesmoke;
+        }
+
+        #right #bag {
+            margin-top: 10px;
+            width: 200px;
+            height: 30px;
+            color: white;
+            background-color: black;
+            border: none;
+        }
+
+        #right #wish {
+            margin-top: 10px;
+            width: 200px;
+            height: 30px;
+            background-color: whitesmoke;
+            border: none;
+        }
+
+        /* Style the buttons that are used to open and close the accordion panel */
+        .accordion {
+            background-color: #eee;
+            color: #444;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            text-align: left;
+            border: 1px solid white;
+            outline: none;
+            transition: 0.4s;
+        }
+
+        /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+        .active,
+        .accordion:hover {
+            background-color: #ccc;
+        }
+
+        /* Style the accordion panel. Note: hidden by default */
+        .panel {
+            padding: 0 18px;
+            background-color: white;
+            display: none;
+            overflow: hidden;
+        }
+
+        #social-media {
+            display: flex;
+        }
+
+        h5 {
+            color: black;
+            font-size: larger;
+            text-align: center;
+        }
+
+        .sliderD {
+            display: grid;
+            grid-auto-flow: column;
+            grid-auto-columns: 22%;
+            gap: 1rem;
+            overflow-x: auto;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            cursor: grab;
+            margin-top: 5rem;
+            padding-inline: 1rem;
+        }
+
+        .sliderD::-webkit-scrollbar {
+            display: none;
+        }
+
+        .slide img {
+            inline-size: 100%;
+            /* aspect-ratio: 4 / 3; */
+            object-fit: cover;
+        }
+
+        .slide {
+            text-align: center;
+        }
+
+        @media (max-width: 440px) {
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .slider {
+                grid-auto-columns: 40%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar"></div>
+    <div id="container">
+        <div id="left">
+            <!-- Swiper -->
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img id="img1" src="" alt="" /></div>
+                    <div class="swiper-slide"><img id="img2" src="" alt="" /></div>
+                    <div class="swiper-slide"><img id="img3" src="" alt="" /></div>
+                    <div class="swiper-slide"><img id="img4" src="" alt="" /></div>
+                    <div class="swiper-slide"><img id="img5" src="" alt="" /></div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+            <div id="bottom">
+                <div><img id="img10" src="" alt="" /></div>
+                <div><img id="img20" src="" alt="" /></div>
+                <div><img id="img30" src="" alt="" /></div>
+            </div>
+        </div>
+        <div id="right">
+            <h2 class="product_brand" id="brand"></h2>
+            <p class="product_name" id="name"></p>
+            <h4 class="product_price" id="price"></h4>
+            <p>VAT exception. VAT not included.</p>
+            <p>item no. P00640538</p>
+            <select id="options">
+                <option>Choose your size</option>
+                <option>XS</option>
+                <option>S</option>
+                <option>M</option>
+                <option>L</option>
+                <option>XL</option>
+                <option>XXL</option>
+            </select><br />
+            <button id="bag" onclick="addtoBag()">ADD TO SHOPPING BAG</button><br />
+            <button id="wish">ADD TO WISHLIST</button>
+            <p><i class="fa-solid fa-truck"></i> Shipping Today</p>
+            <p>
+                If placed within the next tomorrow hour and 12 minutes, your order
+                will be shipped today.
+            </p>
+            <hr />
+            <button class="accordion">style details</button>
+            <div class="panel">
+                <p>Tailored in Italy from wool, this single-breasted design has a shawl lapel and is
+                    finished with gold-toned accents and the brand's Web label.
+                    material: 100% wool
+                    details: 80% polyester, 20% metallic fibres
+                    lining: 100% viscose, fully lined
+                    sleeve lining: 100% cupro, fully lined
+                    care instructions: dry clean
+                    slit pockets, breast pocket, internal pockets
+                    buttoned front
+                    Made in Italy
+                    buttoned cuffs
+                    Designer colour name: Cornsilk</p>
+            </div>
+
+            <button class="accordion">size & fit</button>
+            <div class="panel">
+                <p>True to size
+                    Shoulder pad inserts
+                    Slim fit
+                    Mid-weight material
+                    Falls to the hip
+                    The model in the picture is 185cm-6'1" and wearing a size IT 48
+                    If you have any questions, please call our customer care team at +49 89 127695-101
+                </p>
+            </div>
+
+            <button class="accordion">delivery & free returns</button>
+            <div class="panel">
+                <p>All orders are shipped worldwide via our affiliate courier DHL.
+                    Please see the shipping method as well as shipping costs and delivery times for your destination
+                    here.
+                    We gladly accept returns within 30 days of receipt free of charge. Read here.</p>
+            </div>
+            <p>More questions about this item?</p>
+            <p>See more Brunello Cucinelli</p>
+            <p>See more Shoes by Brunello Cucinelli</p>
+            <p>See more Loafers</p>
+            <p>See more Vacation Essentials</p>
+            <div id="social-media">
+                <div><i class="fa-brands fa-facebook"></i></div>
+                <div><i class="fa-brands fa-twitter-square"></i></div>
+                <div><i class="fa-brands fa-pinterest"></i></div>
+            </div>
+        </div>
+    </div>
+    <hr style="width: 95%;">
+    </div>
+    <h5>YOU MIGHT ALSO LIKE</h5>
+    <div class="sliderD">
+        <div class="slide">
+            <img src="https://img.mytheresa.com/420/475/95/jpeg/catalog/product/ab/P00595871.jpg" alt="" />
+            <p>TOM FORD</p>
+            <P>€ 1,429</P>
+        </div>
+        <div class="slide">
+            <img src="https://img.mytheresa.com/560/560/33/jpeg/catalog/product/a0/P00694192.jpg" alt="" />
+            <p>ACNE STUDIOS</p>
+            <P>€ 195</P>
+        </div>
+        <div class="slide">
+            <img src="https://img.mytheresa.com/560/560/33/jpeg/catalog/product/8b/P00674162.jpg" alt="" />
+            <p>GUCCI</p>
+            <P>€ 329</P>
+        </div>
+        <div class="slide">
+            <img src="https://img.mytheresa.com/560/560/33/jpeg/catalog/product/25/P00649227.jpg" alt="" />
+            <p>ERL</p>
+            <P>€ 295</P>
+        </div>
+        <div class="slide">
+            <img src="https://img.mytheresa.com/560/560/33/jpeg/catalog/product/50/P00648400.jpg" alt="" />
+            <p>GOLDEN GOOSE</p>
+            <P>€ 269</P>
+        </div>
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+
+    <div id="footer"></div>
+</body>
+</html>
+
+<script>
+
+// import navbar from "./navbar.js";
+// document.getElementById("navbar").innerHTML=navbar();
+
+// import footer from "./footer.js";
+// document.getElementById("footer").innerHTML=footer();
+
+    var swiper = new Swiper(".mySwiper", {
+        cssMode: true,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+            el: ".swiper-pagination",
+        },
+        mousewheel: true,
+        keyboard: true,
+    });
+
+
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+            /* Toggle between adding and removing the "active" class,
+            to highlight the button that controls the panel */
+            this.classList.toggle("active");
+
+            /* Toggle between hiding and showing the active panel */
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } else {
+                panel.style.display = "block";
+            }
+        });
+    }
+
+
+    const slider = document.querySelector(".sliderD");
+    let isDown = false;
+    let startX;
+    let sLeft;
+    slider.scrollLeft = 0;
+
+    slider.addEventListener("mousedown", (e) => {
+        isDown = true;
+        startX = e.pageX;
+        sLeft = slider.scrollLeft;
+    });
+
+    slider.addEventListener("mouseleave", () => {
+        isDown = false;
+    });
+    slider.addEventListener("mouseup", () => {
+        isDown = false;
+    });
+
+    slider.addEventListener("mousemove", (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX;
+        const dragged = x - startX;
+        slider.scrollLeft = sLeft - dragged;
+    });
+
+
+
+
+
+    let data = JSON.parse(localStorage.getItem("detail"));
+    console.log(data);
+
+    document.getElementById("img1").src = data.img.img1;
+    document.getElementById("img2").src = data.img.img2;
+    document.getElementById("img3").src = data.img.img3;
+    document.getElementById("img4").src = data.img.img4;
+    document.getElementById("img5").src = data.img.img5;
+
+    document.getElementById("img10").src = data.img.img2;
+    document.getElementById("img20").src = data.img.img3;
+    document.getElementById("img30").src = data.img.img4;
+
+    document.getElementById("brand").innerText = data.title;
+    document.getElementById("name").innerText = data.category;
+    document.getElementById("price").innerText = `€ ${data.price}`;
+
+
+    let arr = JSON.parse(localStorage.getItem("bag")) || [];
+    function addtoBag() {
+        arr.push(data);
+        console.log(arr);
+        localStorage.setItem("bag", JSON.stringify(arr));
+    }
+</script>
