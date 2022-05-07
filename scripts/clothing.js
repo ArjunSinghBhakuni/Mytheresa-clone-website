@@ -1,6 +1,13 @@
 import { data, clothing_container, data1, footers_men_women_kid } from "./data.js"
 console.log(data)
 
+    import navbar from "../navbar.js"
+
+    document.getElementById("navbar").innerHTML = navbar();
+
+    import footer from "../footer.js"
+    document.getElementById("footer").innerHTML = footer()
+
 
 //Data appned on clothing container 
 read("clothing_container").innerHTML = clothing_container();
@@ -131,6 +138,7 @@ function append(data) {
         div.append(innerdiv_head, product_img, product_name, product_price)
 
         clothing_divs.append(div)
+
     })
 
 
@@ -139,7 +147,7 @@ function append(data) {
 function store_data(Product_detail) {
     console.log(Product_detail)
 
-    //window.location.href("")
+    //window.location.href("#")
 
     localStorage.setItem("detail", JSON.stringify(Product_detail))
 }
