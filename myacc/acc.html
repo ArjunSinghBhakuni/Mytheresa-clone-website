@@ -72,7 +72,8 @@
         height: auto;
         padding: 8px;
     }
-    #hello{
+
+    #hello {
         font-size: 20px;
         font-weight: 300;
     }
@@ -112,7 +113,7 @@
                             <div class="col1">
                                 <br>
                                 Name: <span id="name"></span> <br><br>
-                                Email: <span id="email">  </span> 
+                                Email: <span id="email"> </span>
                             </div>
                             <div class="col2">
                                 <p>
@@ -172,7 +173,10 @@
                 </div>
             </div>
         </div>
+
+
     </div>
+
 </body>
 
 </html>
@@ -180,12 +184,12 @@
 
     // let data = JSON.parse(localStorage.getItem("userdetails"))
     let data = {
-        name:"Bhargavi chella",
-        email:"banu@gmail.com"
+        name: "Bhargavi chella",
+        email: "banu@gmail.com"
     }
 
-    document.getElementById("name").innerText=data.name
-    document.getElementById("email").innerText= data.email
+    document.getElementById("name").innerText = data.name
+    document.getElementById("email").innerText = data.email
 
     document.getElementById("hello").innerText = ` Hello, ${data.name}`
 

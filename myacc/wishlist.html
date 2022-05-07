@@ -1,77 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>wishlist</title>
-  </head>
-  <style>
-    h2 {
-      color: #000;
-      font-size: 18px;
-      text-transform: uppercase;
-    }
-    p {
-      color: rgb(112, 92, 92);
-    }
-    .button {
-      padding: 15px;
-      border-radius: 5px;
-      text-transform: uppercase;
-      border: 0;
-      background-color: #E0CECE;
-      color: #000;
-      cursor: pointer;
-      text-decoration: none;
-      margin: auto;
-      margin-bottom: 20px;
-      position: fixed;
-    }
-    #cross {
-      width: 10px;
-      height: 10px;
-      margin-left: 90%;
-      cursor: pointer;
-    }
-    #wishlist_item {
-      margin: auto;
-      width: 80%;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-    #wishlist_item div {
-      text-align: center;
-    }
-    #pimage {
-      width: 80%;
-    }
-    #wishlist_item div button {
-      border: 0px;
-      background-color: black;
-      cursor: pointer;
-      color: white;
-      padding: 10px 15px 10px 15px;
-      width: 100%;
-    }
-    #wishlist_item div button:hover {
-      opacity: 50%;
-    }
-    #itemlist {
-      margin-top: 10px;
-      margin-left: 35%;
-    }
-    #noOfItemInWishList {
-      margin-left: 10%;
-     
-    }
-  </style>
-  <body>
-    <div id="itemlist"></div>
-    <div id="noOfItemInWishList"></div>
-    <div id="wishlist_item"></div>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>wishlist</title>
+</head>
+<style>
+  h2 {
+    color: #000;
+    font-size: 18px;
+    text-transform: uppercase;
+  }
+
+  p {
+    color: rgb(112, 92, 92);
+  }
+
+  .button {
+    padding: 15px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    border: 0;
+    background-color: #e0cece;
+    color: #000;
+    cursor: pointer;
+    text-decoration: none;
+    margin: auto;
+    margin-bottom: 20px;
+    position: fixed;
+  }
+
+  #cross {
+    width: 10px;
+    height: 10px;
+    margin-left: 90%;
+    cursor: pointer;
+  }
+
+  #wishlist_item {
+    margin: auto;
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  #wishlist_item div {
+    text-align: center;
+  }
+
+  #pimage {
+    width: 80%;
+  }
+
+  #wishlist_item div button {
+    border: 0px;
+    background-color: black;
+    cursor: pointer;
+    color: white;
+    padding: 10px 15px 10px 15px;
+    width: 100%;
+  }
+
+  #wishlist_item div button:hover {
+    opacity: 50%;
+  }
+
+  #itemlist {
+    margin-top: 10px;
+    margin-left: 35%;
+  }
+
+  #noOfItemInWishList {
+    margin-left: 10%;
+  }
+</style>
+
+<body>
+  
+  <div id="itemlist"></div>
+  <div id="noOfItemInWishList"></div>
+  <div id="wishlist_item"></div>
+</body>
+
 </html>
 <script>
   let wishdata = JSON.parse(localStorage.getItem("wishlist"));
@@ -93,7 +106,7 @@
     let div = create("div");
     div.setAttribute("class", "button");
     div.innerText = "Shop now";
-   
+
     div.onclick = () => {
       window.location.href = "index.html";
     };
@@ -104,7 +117,7 @@
     display(wishdata);
     function display(wishdata) {
       items.innerText = `Items (${wishdata.length})`;
-      
+
       container.innerHTML = null;
       wishdata.forEach(function (elem, index) {
         //console.log(elem)
@@ -116,7 +129,7 @@
         cross.onclick = () => {
           remove(elem, index);
         };
-        
+
         let img = create("img");
         img.setAttribute("id", "pimage");
         img.src = elem.img.img1;
@@ -124,7 +137,7 @@
         productname.innerText = elem.title;
         let price = create("h4");
         price.innerText = ` € ${elem.price}`;
-        
+
         let moveBag = create("button");
         moveBag.innerText = "Move To Bag";
         moveBag.onclick = () => {
@@ -135,7 +148,7 @@
       });
     }
   }
-  
+
   function movetobag(elem, index) {
     let ele = wishdata.splice(index, 1);
     console.log(ele);
@@ -146,7 +159,7 @@
     localStorage.setItem("bag", JSON.stringify(bagData));
     display(wishdata);
   }
-  
+
   function remove(elem, index) {
     let ele = wishdata.splice(index, 1);
     console.log(ele);
