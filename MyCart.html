@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="index.css" />
     <title>Document</title>
     <style>
       #top {
@@ -85,7 +85,7 @@
         /* padding-top: 10px; */
         /* margin-bottom: -100px; */
       }
-      .topCartLeftPD{
+      .topCartLeftPD {
         padding: 10px;
       }
       #remove {
@@ -96,24 +96,45 @@
         color: #3e86c9;
       }
 
-      .topCartCenter{
+      .topCartCenter {
         justify-content: space-between;
         width: 40%;
         display: flex;
         /* border: 1px solid blue; */
       }
 
-      .topCartCenter h4{
+      .topCartCenter h4 {
         margin: 10px 0px 10px 40px;
         /* padding: 5px; */
       }
+      .topCartBox .quantityBox {
+        /* border: 1px solid red; */
+        width: 100px;
+        margin: 10px;
+      }
+      .topCartCenter .qtBox {
+        margin: 1px 20px;
+        padding: 5px;
+        width: 25px;
+        height: 20px;
+        text-align: center;
+      }
+      .topCartCenter .qtButton {
+        margin: 5px 0px;
+        width: 80px;
+        height: 25px;
+        text-align: center;
+      }
 
-      #midBox{
+      #totalSum {
+        margin-left: 200px;
+      }
+      #midBox {
         width: 95%;
         margin: auto;
       }
 
-      #bottomCartBox1{
+      #bottomCartBox1 {
         padding: 10px;
         margin: auto;
         display: flex;
@@ -121,19 +142,19 @@
         /* border: 2px solid red; */
         justify-content: space-between;
       }
-      #bottomCartBox2{
+      #bottomCartBox2 {
         margin: auto;
         display: flex;
         width: 94%;
         /* border: 2px solid red; */
         justify-content: space-between;
       }
-      #bottomCartBox2 button{
+      #bottomCartBox2 button {
         height: 40px;
         width: 250px;
         border: none;
       }
-      #bottomCartBox2 button:nth-last-child(1){
+      #bottomCartBox2 button:nth-last-child(1) {
         height: 40px;
         width: 250px;
         border: none;
@@ -143,8 +164,8 @@
     </style>
   </head>
   <body>
-      <div id="navbar"></div>
-      
+    <div id="navbar"></div>
+
     <div id="top">
       <h2>YOUR SHOPPING BAG</h2>
       <button onclick="checkingOut()">PROCEED TO CHECKOUT</button>
@@ -156,20 +177,20 @@
     </div>
     <hr />
     <div id="container"></div>
-    <hr>
+    <hr />
     <div id="midBox">
       <h3>YOUR CURRENT PROMOTIONS</h3>
       <h4>Free shipping</h4>
     </div>
-    <hr>
+    <hr />
     <div id="bottomCartBox">
       <div id="bottomCartBox1">
         <div>
-          <input type="text" placeholder="Gift Card/Store Credit/Promo Code"/>
+          <input type="text" placeholder="Gift Card/Store Credit/Promo Code" />
           <button>USECODE</button>
         </div>
         <div>
-          <h4>Subtotal</h4>
+          <!-- <h4>Subtotal</h4> -->
           <h4 id="grandTotal">Grand Total <span id="totalSum"></span></h4>
           <p>VAT exception. VAT not included. Shipping not included.</p>
         </div>
@@ -179,37 +200,44 @@
         <button onclick="checkingOut()">PROCEED TO CHECKOUT</button>
       </div>
     </div>
-    <hr>
+    <hr />
 
     <div id="footer"></div>
   </body>
 </html>
 
 <script type="module">
+  import navbar from "./navbar.js";
+  document.getElementById("navbar").innerHTML = navbar();
 
-import navbar from "./navbar.js";
-document.getElementById("navbar").innerHTML=navbar();
+  import footer from "./footer.js";
+  document.getElementById("footer").innerHTML = footer();
+</script>
 
-import footer from "./footer.js";
-document.getElementById("footer").innerHTML=footer();
+<script>
+  function checkingOut() {
+    window.location.href = "../payments/delivery.html";
+  }
+  // import { topsection, footersection } from "../payments/components/top-bottom.js";
+  // document.querySelector('.herder-contain').innerHTML = topsection();
+  // document.querySelector('footer').innerHTML = footersection();
 
   let cartData = JSON.parse(localStorage.getItem("bag")) || [];
   console.log(cartData);
 
   var cartData1 = JSON.parse(localStorage.getItem("bag")) || [];
   var sum = 0;
-  for(let i=0;i<cartData1.length;i++){
+  for (let i = 0; i < cartData1.length; i++) {
     sum += cartData1[i].subTotalSum;
   }
   console.log(sum);
 
- var sbTotal = 0;
-  for(let j=0;j<cartData1.length;j++){
-      sbTotal += cartData1[j].price;
+  var sbTotal = 0;
+  for (let j = 0; j < cartData1.length; j++) {
+    sbTotal += cartData1[j].price;
   }
 
   cartData.map(function (ele, i) {
-
     let bigCartBox = document.createElement("div");
     bigCartBox.setAttribute("class", "bigCartBox");
 
@@ -253,49 +281,50 @@ document.getElementById("footer").innerHTML=footer();
     let priced = document.createElement("h4");
     // priced.setAttribute("id","priceQty")
     priced.innerText = ele.price;
-     
+
     let itemPrice = ele.price;
 
-    let qty = document.createElement("input");
-    if(ele.quantity==undefined){
-      qty.value = 1;
-    }
-    else{
-      qty.value =  ele.quantity;
-    }
+    let quantityBox = document.createElement("div");
+    quantityBox.setAttribute("class", "quantityBox");
 
+    let qty = document.createElement("input");
+    qty.setAttribute("class", "qtBox");
+    if (ele.quantity == undefined) {
+      qty.value = 1;
+    } else {
+      qty.value = ele.quantity;
+    }
 
     let subtotal = document.createElement("p");
-    subtotal.setAttribute("id","priceQty");
-    console.log(ele.subtotal==undefined);
-    if(ele.subTotalSum==undefined){
+    subtotal.setAttribute("id", "priceQty");
+    console.log(ele.subtotal == undefined);
+    if (ele.subTotalSum == undefined) {
       subtotal.innerText = ele.price;
-    }
-    else{
+    } else {
       subtotal.innerText = ele.subTotalSum;
       // console.log(subtotal.innerText==undefined);
     }
     // subtotal.innerText = ele.price;
 
-    let qtyBtn = document.createElement("button")
+    let qtyBtn = document.createElement("button");
+    qtyBtn.setAttribute("class", "qtButton");
     qtyBtn.innerText = "Update";
-    qtyBtn.addEventListener("click", function(){
+    qtyBtn.addEventListener("click", function () {
       let subTotalSum = subtotal;
       // console.log(subtotal.innerText);
-      updateSum(qty.value, itemPrice, cartData1, subTotalSum ,i);
+      updateSum(qty.value, itemPrice, cartData1, subTotalSum, i);
     });
 
-
     // document.getElementById("totalSum").innerText = s;
-    if(ele.subTotalSum==undefined){
-        document.getElementById("totalSum").innerText = sbTotal;
-    }
-    else{
-        document.getElementById("totalSum").innerText = sum;
+    if (ele.subTotalSum == undefined) {
+      document.getElementById("totalSum").innerText = sbTotal;
+    } else {
+      document.getElementById("totalSum").innerText = sum;
       // console.log(subtotal.innerText==undefined);
     }
 
-    topCartCenter.append(priced, qty, qtyBtn,subtotal);
+    quantityBox.append(qty, qtyBtn);
+    topCartCenter.append(priced, quantityBox, subtotal);
     topCartLeftPD.append(named, type, sized, itemno, remove);
     topCartLeftImage.append(cartImage);
     topCartLeft.append(topCartLeftImage, topCartLeftPD);
@@ -311,20 +340,18 @@ document.getElementById("footer").innerHTML=footer();
     window.location.href = "cart.html";
   }
 
-  function updateSum(qty, price, cartData1, subTotalSum, i){
+  function updateSum(qty, price, cartData1, subTotalSum, i) {
     console.log(cartData1[i]);
     // cartData1[i].price = qty*price;
-    cartData1[i].subTotalSum = qty*price;
-    subTotalSum.innerText = qty*price;
-    cartData1[i].quantity = qty; 
+    cartData1[i].subTotalSum = qty * price;
+    subTotalSum.innerText = qty * price;
+    cartData1[i].quantity = qty;
     // document.getElementById("totalSum").innerText = sum;
     // console.log(ele);
     // console.log(i);
     // elem.price = i*ele;
 
-    localStorage.setItem("bag",JSON.stringify(cartData1))
-    window.location.reload()
+    localStorage.setItem("bag", JSON.stringify(cartData1));
+    window.location.reload();
   }
-
-
 </script>

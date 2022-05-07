@@ -76,7 +76,7 @@
             /* border: 1px solid red; */
         }
 
-        #left #bottom{
+        #left #bottom {
             margin: 10px;
             width: 100%;
             display: flex;
@@ -84,13 +84,13 @@
             /* border: 1px solid red; */
         }
 
-        #bottom div{
+        #bottom div {
             width: 100%;
             height: auto;
             /* border: 1px solid blue; */
         }
 
-        #bottom img{
+        #bottom img {
             width: 100%;
             height: 200px;
             object-fit: contain;
@@ -241,7 +241,7 @@
                 <option>XXL</option>
             </select><br />
             <button id="bag" onclick="addtoBag()">ADD TO SHOPPING BAG</button><br />
-            <button id="wish">ADD TO WISHLIST</button>
+            <button id="wish" onclick="addtowish()">ADD TO WISHLIST</button>
             <p><i class="fa-solid fa-truck"></i> Shipping Today</p>
             <p>
                 If placed within the next tomorrow hour and 12 minutes, your order
@@ -325,6 +325,7 @@
             <P>€ 269</P>
         </div>
     </div>
+    <hr>
 
     <!-- Swiper JS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
@@ -333,16 +334,18 @@
 
     <div id="footer"></div>
 </body>
+
 </html>
 
+<script type="module">
+    import navbar from "./navbar.js";
+    document.getElementById("navbar").innerHTML = navbar();
+
+    import footer from "./footer.js";
+    document.getElementById("footer").innerHTML = footer();
+</script>
+
 <script>
-
-// import navbar from "./navbar.js";
-// document.getElementById("navbar").innerHTML=navbar();
-
-// import footer from "./footer.js";
-// document.getElementById("footer").innerHTML=footer();
-
     var swiper = new Swiper(".mySwiper", {
         cssMode: true,
         navigation: {
@@ -431,5 +434,12 @@
         arr.push(data);
         console.log(arr);
         localStorage.setItem("bag", JSON.stringify(arr));
+    }
+
+    let wishArr = JSON.parse(localStorage.getItem("wishlist")) || []
+    function addtowish() {
+        console.log(wishArr);
+        wishArr.push(data);
+        localStorage.setItem("wishlist", JSON.stringify(wishArr));
     }
 </script>
