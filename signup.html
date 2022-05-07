@@ -8,10 +8,10 @@
     <title>Document</title>
     <link rel="stylesheet" href="index.css">
     <style>
-        * {
+        /* * {
             font-weight: 500;
             color: #757575;
-        }
+        } */
 
         #signup_login_details {
             font-size: 16px;
@@ -19,6 +19,8 @@
             display: flex;
             width: 90%;
             margin: auto;
+            /* font-weight: 500; */
+            color: #757575;
         }
 
 
@@ -42,39 +44,46 @@
             margin-top: 20px;
             background-color: black;
             color: white;
+            font-weight: 500;
         }
 
         #login_button:hover {
             border: none;
             cursor: pointer;
             background-color: #666;
+            font-weight: 500;
         }
 
         #select_tag {
             width: 102%;
             height: 50px;
+            font-weight: 500;
         }
 
         form {
             display: flex;
             flex-direction: column;
             margin: 10px auto;
+            font-weight: 500;
         }
 
         form * {
             margin: 10px auto;
             width: 100%;
             padding: 10px 0px 10px 10px;
-            font-size: 16px
+            font-size: 16px;
+            font-weight: 500;
         }
 
         #check {
             line-height: 25px;
+            font-weight: 500;
         }
 
         input[type="checkbox"] {
             width: 16px;
             height: 16px;
+            font-weight: 500;
         }
 
         a {
@@ -89,14 +98,21 @@
             height: 40px;
             font-size: 16px;
             margin-top: 25px;
+            font-weight: 500;
         }
 
         .i_agree {
             margin-top: 15px;
+            font-weight: 500;
         }
 
         #submit_btn:hover {
             background-color: #dfdfdf;
+            font-weight: 500;
+        }
+
+        h3 {
+            font-weight: 500;
         }
     </style>
 </head>
@@ -127,8 +143,7 @@
                     <input type="text" placeholder="Last name *" id="last_name" class="" value="">
                     <input type="text" placeholder="Email address *" id="email" class="" value="">
                     <input type="password" placeholder="Password *" id="password" class="" value="">
-                    <input type="password" placeholder="Confirm password *" id="confirm_password" class=""
-                        value="">
+                    <input type="password" placeholder="Confirm password *" id="confirm_password" class="" value="">
                 </form>
                 <div id="check">
                     <input type="checkbox" id="agr_checkbox" checked style="display: inline;"><span> From now on I
@@ -174,7 +189,7 @@
 </body>
 
 </html>
- 
+
 <script type="module">
     // to keep the value unchcked
     // document.getElementById("agr_checkbox").checked = false
@@ -235,6 +250,13 @@
         let flag = false
         for (let i = 0; i < data.length; i++) {
             if (login_email == data[i].email && login_password == data[i].password) {
+                var obj = {
+                    firstName: `${data[i].first_name}`,
+                    lastName: `${data[i].last_name}`,
+                    email: data[i].email
+                }
+                localStorage.setItem("userdetails", JSON.stringify(obj))
+                // final_username = 
                 flag = true
             }
         }
