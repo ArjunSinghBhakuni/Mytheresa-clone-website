@@ -75,6 +75,7 @@
         #hello{
             font-size: 20px;
             font-weight: 300;
+            text-align: center;
         }
 </style>
   <link rel="stylesheet" href="index.css"> 
@@ -197,9 +198,9 @@ document.getElementById("footer").innerHTML = footer()
     //     email:"banu@gmail.com"
     // }
 
-    document.getElementById("name").innerText=data.name
+    document.getElementById("name").innerText=  data.firstName+" "+ data.lastName
     document.getElementById("email").innerText= data.email
 
-    document.getElementById("hello").innerText = ` Hello, ${data.name}`
+    document.getElementById("hello").innerText = ` Hello,  ${data.firstName}  ${data.lastName}  `
 
 </script>
