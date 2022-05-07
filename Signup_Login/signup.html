@@ -134,7 +134,8 @@
                         free
                         of charge at privacy@mytheresa.com.
                     </span>
-                    <div class="i_agree">I agree that Mytheresa may insert analytical web beacons into the newsletter and create a
+                    <div class="i_agree">I agree that Mytheresa may insert analytical web beacons into the newsletter
+                        and create a
                         personalized user profile based on my purchase and usage behavior, including sending a
                         notification when I have placed something in the shopping cart. Further details can be found
                         in
@@ -212,7 +213,7 @@
             localStorage.setItem("signup_details", JSON.stringify(arr))
         }
         else {
-            console.log("No")
+            alert("No")
         }
     }
 
@@ -222,6 +223,7 @@
         data = JSON.parse(localStorage.getItem("signup_details")) || []
         // console.log(data.email)
         // console.log(data)
+        
         let login_email = document.getElementById("email_login").value
         let login_password = document.getElementById("password_login").value
         // console.log(login_email)
