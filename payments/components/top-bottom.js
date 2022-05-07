@@ -61,7 +61,7 @@ function topsection() {
                 <i class="fa-solid fa-xmark logo-conditions"></i>
                 <div class="width-action-logo"> <span>If you return to your shopping bag, you will exit the checkout process and need to start again.</span></div>
                 <div class="btn logo-btn">
-                    <button><a href='../MyCart.html'>RETURN TO SHOPPING BAG</a></button>
+                    <button>RETURN TO SHOPPING BAG</button>
                     <button class="simply-hidden">PROCESSD TO CHECKOUT</button>
                 </div>
             </div>
