@@ -145,7 +145,7 @@ let completecheckout = () => {
     <div class="change_position_success">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Noun_Project_Celebration_icon_1857239.svg/150px-Noun_Project_Celebration_icon_1857239.svg.png?20200206001616" alt=""></div>
 
-    <button><a href="index.html">RETURN TO HOME PAGE</a></button>
+    <button><a href="../index.html">RETURN TO HOME PAGE</a></button>
 </div>`
 }
 document.querySelector('#completecheckout').addEventListener('click', completecheckout);
