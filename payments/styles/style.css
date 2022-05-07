@@ -19,6 +19,11 @@
     width: 290px;
 }
 
+.logo-btn a {
+    text-decoration: none;
+    color: #111;
+}
+
 .floting-text-container div {
     position: relative;
 }
