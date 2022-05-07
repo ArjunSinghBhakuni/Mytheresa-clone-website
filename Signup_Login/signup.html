@@ -8,8 +8,13 @@
     <title>Document</title>
     <link rel="stylesheet" href="../index.css">
     <style>
+        * {
+            font-weight: 500;
+            color: #757575;
+        }
+
         #signup_login_details {
-            font-size: 1.3rem;
+            font-size: 16px;
             box-sizing: border-box;
             display: flex;
             width: 90%;
@@ -33,7 +38,7 @@
         #login_button {
             width: 18%;
             height: 40px;
-            font-size: 1.4rem;
+            font-size: 16px;
             margin-top: 20px;
             background-color: black;
             color: white;
@@ -60,7 +65,7 @@
             margin: 10px auto;
             width: 100%;
             padding: 10px 0px 10px 10px;
-            font-size: 1.2rem
+            font-size: 16px
         }
 
         #check {
@@ -82,7 +87,7 @@
             border: none;
             width: 120px;
             height: 40px;
-            font-size: 1.2rem;
+            font-size: 16px;
             margin-top: 25px;
         }
 
@@ -123,7 +128,7 @@
                     <input type="text" placeholder="Email address *" id="email" class="" value="">
                     <input type="password" placeholder="Password *" id="password" class="" value="">
                     <input type="password" placeholder="Confirm password *" id="confirm_password" class=""
-                        value="12345">
+                        value="">
                 </form>
                 <div id="check">
                     <input type="checkbox" id="agr_checkbox" checked style="display: inline;"><span> From now on I
@@ -220,10 +225,10 @@
 
     document.getElementById("login_button").addEventListener("click", login_btn)
     function login_btn() {
-        data = JSON.parse(localStorage.getItem("signup_details")) || []
+        let data = JSON.parse(localStorage.getItem("signup_details")) || []
         // console.log(data.email)
         // console.log(data)
-        
+
         let login_email = document.getElementById("email_login").value
         let login_password = document.getElementById("password_login").value
         // console.log(login_email)

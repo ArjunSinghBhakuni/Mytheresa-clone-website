@@ -131,7 +131,6 @@ function append(data) {
         div.append(innerdiv_head, product_img, product_name, product_price)
 
         clothing_divs.append(div)
-
     })
 
 
@@ -140,7 +139,7 @@ function append(data) {
 function store_data(Product_detail) {
     console.log(Product_detail)
 
-    //window.location.href("#")
+    //window.location.href("")
 
     localStorage.setItem("detail", JSON.stringify(Product_detail))
 }

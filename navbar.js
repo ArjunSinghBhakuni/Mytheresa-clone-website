@@ -3,7 +3,7 @@ function navbar(){
     <div id="box11">
         <a class="a1" href="women.html">  <h3>women</h3></a>
   
-    <a class="a1" href="index.html"><h3>man</h3></a>
+    <a class="a1" href="index.html"><h3>men</h3></a>
  
     <a class="a1" href="kids.html"><h3>kids</h3></a>
     
@@ -149,7 +149,7 @@ function navbar(){
        
           <a id="box31" href="#">   Givenchy</a>
           <a id="box31" href="#">  Gucci</a>
-          <a id="box31" href="#">Lemaire</a>
+          <a id="box31" href="#">  Lemaire</a>
           <a id="box31" href="#">Loewe</a>
           <a id="box31" href="#">Loro Piana</a>
           <a id="box31" href="#">    Maison Margiela  </a>
@@ -170,7 +170,7 @@ function navbar(){
         <div class="column">
        
          
-          <a id="box31" href="#">  Clothing</a>
+          <a id="box31" href="#">Clothing</a>
           <a id="box31" href="#">Shoes</a>
           <a id="box31" href="#">Bags</a>
           <a id="box31" href="#">Accessories</a>
@@ -210,7 +210,7 @@ function navbar(){
 <div class="row">
 <div class="column">
 
-<a id="box31" href="#">    Jackets</a>
+<a id="box31" href="clothing.html">Jackets</a>
 <a id="box31" href="#">     Sweats</a>
 <a id="box31" href="#">   Knitwear</a>
 
