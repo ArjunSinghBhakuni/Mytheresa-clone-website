@@ -150,8 +150,8 @@ document.getElementById("footer").innerHTML = footer()
   
   function movetobag(elem, index) {
     let ele = wishdata.splice(index, 1);
-    //console.log(ele);
-    bagData.push(ele);
+    console.log(ele);
+    bagData.push(ele[0]);
 
     alert("Item is Add to Bag");
     localStorage.setItem("wishlist", JSON.stringify(wishdata));
