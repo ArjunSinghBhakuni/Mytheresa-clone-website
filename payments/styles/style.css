@@ -262,6 +262,10 @@ select {
     gap: 8px;
 }
 
+.right-side-name-container {
+    margin-left: 25px;
+}
+
 .right-side-name-container p:nth-child(2) {
     /* font-family: Futura-Medium, Century Gothic, Gill Sans, Helvetica, Arial, sans-serif; */
     font-weight: 600;
