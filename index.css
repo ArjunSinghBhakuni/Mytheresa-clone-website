@@ -413,6 +413,7 @@ li{
   padding: 8px 20px;
   right: 5px;
   text-transform: uppercase;
+  margin-left: 0px;
 }
 
 #Adicolpay{
@@ -425,6 +426,7 @@ li{
   border-top: 1px solid #e0e0e0;
   border-bottom: 1px solid #e0e0e0;
   display: flex;
+  
 }
 #Adirow1pay{
   width: 50%;

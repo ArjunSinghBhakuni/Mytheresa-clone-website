@@ -27,7 +27,7 @@ function navbar(){
     </div>
   </a>
     <div class="bag"> 
-        <a class="label" href="">Shopping bag</a>
+        <a class="label" href="MyCart.html">Shopping bag</a>
         <!-- <span >Shopping bag</span> -->
         <span id="spanbag"><i class="bi bi-bag"></i></span>
         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
