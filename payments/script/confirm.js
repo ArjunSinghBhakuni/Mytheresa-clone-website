@@ -64,6 +64,9 @@ let obj = [{
     des: 'Lace-trimmed muslin maxi dress'
 }];
 // 
+
+
+
 let subtotalamount = document.querySelector('.subtotal-amount');
 const sumtotal = obj.reduce(function(prev, el, i, arr) {
     prev += Number(el.price) * Number(el.quantity);
@@ -100,7 +103,7 @@ subtotalamount.append(container, contaienr_value);
 
 
 let itemappedingadd = document.querySelector('.add-items-cato-price');
-
+console.log(itemappedingadd)
 obj.forEach(({ img_items, name, size, item, price, quantity, des }) => {
     let img = document.createElement('img');
     img.src = img_items;
