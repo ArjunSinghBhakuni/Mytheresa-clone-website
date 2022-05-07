@@ -53,10 +53,12 @@
         width: 80%;
         height: auto;
     }
-    .right{
+
+    .right {
         width: 100%;
     }
-    .left{
+
+    .left {
         width: 30%;
     }
 
@@ -64,12 +66,16 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
     }
-.welcm{
-    background-color: rgb(222, 209, 209);
-    height: auto;
-    padding: 8px;
-}
-    
+
+    .welcm {
+        background-color: rgb(222, 209, 209);
+        height: auto;
+        padding: 8px;
+    }
+    #hello{
+        font-size: 20px;
+        font-weight: 300;
+    }
 </style>
 
 <body>
@@ -95,7 +101,7 @@
                         <h2><strong>MY OVERVIEW</strong></h2>
                     </div>
                     <div class="welcm">
-                        <p>Hello,</p>
+                        <p id="hello"></p>
                         <p>From your My Account Dashboard you have the ability to view a snapshot of your recent account
                             activity and update your account information. Select a link below to view or edit
                             information.</p>
@@ -104,8 +110,9 @@
                         <h2>my account information</h2>
                         <div class="col">
                             <div class="col1">
-                                <p>Name:</p>
-                                <p>Email:</p>
+                                <br>
+                                Name: <span id="name"></span> <br><br>
+                                Email: <span id="email">  </span> 
                             </div>
                             <div class="col2">
                                 <p>
@@ -145,6 +152,7 @@
                         </div>
                     </div>
                 </div>
+                <hr>
                 <div class="myacc">
                     <h2>Easy-access Login</h2>
                     <form action="#">
@@ -169,5 +177,16 @@
 
 </html>
 <script>
+
+    // let data = JSON.parse(localStorage.getItem("userdetails"))
+    let data = {
+        name:"Bhargavi chella",
+        email:"banu@gmail.com"
+    }
+
+    document.getElementById("name").innerText=data.name
+    document.getElementById("email").innerText= data.email
+
+    document.getElementById("hello").innerText = ` Hello, ${data.name}`
 
 </script>
