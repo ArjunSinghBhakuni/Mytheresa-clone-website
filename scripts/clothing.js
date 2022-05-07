@@ -147,8 +147,7 @@ function append(data) {
 function store_data(Product_detail) {
     console.log(Product_detail)
 
-    //window.location.href("#")
-
+     window.location.href = "ProductDetails.html"
     localStorage.setItem("detail", JSON.stringify(Product_detail))
 }
 

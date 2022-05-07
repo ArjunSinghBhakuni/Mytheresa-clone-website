@@ -92,28 +92,28 @@ document.getElementById("footer").innerHTML = footer()
   let itemlist = read("itemlist");
   let items = read("noOfItemInWishList");
 
-  if (wishdata.length === 0) {
-    //window.location.reload()
-    items.innerHTML = null;
+  // if (wishdata.length === 0) {
+  //   //window.location.reload()
+  //   items.innerHTML = null;
 
-    let h2 = create("h2");
-    h2.innerText = "There are no products on your wishlist.";
-    let p = create("p");
-    p.innerText =
-      "Check out our new arrivals and start adding to your wishlist now!";
-    let div = create("div");
-    div.setAttribute("class", "button");
-    div.innerText = "Shop now";
+  //   let h2 = create("h2");
+  //   h2.innerText = "There are no products on your wishlist.";
+  //   let p = create("p");
+  //   p.innerText =
+  //     "Check out our new arrivals and start adding to your wishlist now!";
+  //   let div = create("div");
+  //   div.setAttribute("class", "button");
+  //   div.innerText = "Shop now";
    
-    div.onclick = () => {
-      window.location.href = "index.html";
-    };
+  //   div.onclick = () => {
+  //     window.location.href = "index.html";
+  //   };
 
-    itemlist.append(h2, p, div);
-  } else {
+  //   itemlist.append(h2, p, div);
+  // } else {
     console.log(wishdata);
     display(wishdata);
-    
+
     function display(wishdata) {
       items.innerText = `Items (${wishdata.length})`;
       
@@ -146,11 +146,11 @@ document.getElementById("footer").innerHTML = footer()
         container.append(div);
       });
     }
-  }
+ // }
   
   function movetobag(elem, index) {
     let ele = wishdata.splice(index, 1);
-    console.log(ele);
+    //console.log(ele);
     bagData.push(ele);
 
     alert("Item is Add to Bag");
@@ -161,7 +161,7 @@ document.getElementById("footer").innerHTML = footer()
   
   function remove(elem, index) {
     let ele = wishdata.splice(index, 1);
-    console.log(ele);
+   // console.log(ele);
     alert("Item Removed From Wishlist");
     localStorage.setItem("wishlist", JSON.stringify(wishdata));
     display(wishdata);
