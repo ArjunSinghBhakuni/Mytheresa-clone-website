@@ -202,6 +202,7 @@
     document.getElementById("footer").innerHTML = footer()
 
 
+    let arr = []
     document.getElementById("submit_btn").addEventListener("click", submit_btn_fn)
     function submit_btn_fn() {
         if (document.getElementById("confirm_password").value == document.getElementById("password").value) {
@@ -215,7 +216,6 @@
 
 
 
-            let arr = []
             var obj = {
                 title: document.getElementById("select_tag").value,
                 radio_value: radio_value,
@@ -224,16 +224,24 @@
                 email: document.getElementById("email").value,
                 password: document.getElementById("password").value
             }
-            if (obj.title == "") {
-                // alert("Hi")
+            console.log(document.getElementById("agr_checkbox").checked)
+            console.log()
+            // console.log(document.getElementsByClassName("radio_button").checked)
+            if (obj.title !== "" && document.getElementById("agr_checkbox").checked) {
+                arr.push(obj)
+                localStorage.setItem("signup_details", JSON.stringify(arr))
+                alert("signup SuccessFull, Please Login")
+                window.location.reload()
+            } else {
+                
+                alert("please select Academic Title")
+                // throw new Error("Something went badly wrong!");
+                // console.log(obj)
+                
             }
-            // throw new Error("Something went badly wrong!");
-            // console.log(obj)
-            arr.push(obj)
-            localStorage.setItem("signup_details", JSON.stringify(arr))
         }
         else {
-            alert("No")
+            alert("Password doesn't match")
         }
     }
 
@@ -262,6 +270,7 @@
         }
         if (flag == true) {
             alert("login SuccessFull")
+            window.location.href = "index.html"
         }
         else {
             alert("login failed")
