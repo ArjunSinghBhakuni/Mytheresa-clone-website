@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="index.css" />
-    <title>Document</title>
+    <title>Your Shopping Bag | Mytheresa</title>
     <style>
       #top {
         display: flex;
@@ -196,7 +196,7 @@
         </div>
       </div>
       <div id="bottomCartBox2">
-        <button>CONTINUE SHOPPING</button>
+        <button onclick="contShop()">CONTINUE SHOPPING</button>
         <button onclick="checkingOut()">PROCEED TO CHECKOUT</button>
       </div>
     </div>
@@ -218,6 +218,10 @@
   function checkingOut() {
     window.location.href = "../payments/delivery.html";
   }
+
+  function contShop() {
+    window.location.href = "clothing.html";
+  }
   // import { topsection, footersection } from "../payments/components/top-bottom.js";
   // document.querySelector('.herder-contain').innerHTML = topsection();
   // document.querySelector('footer').innerHTML = footersection();
@@ -230,7 +234,7 @@
   for (let i = 0; i < cartData1.length; i++) {
     sum += cartData1[i].subTotalSum;
   }
-  console.log(sum);
+  // console.log(sum);
 
   var sbTotal = 0;
   for (let j = 0; j < cartData1.length; j++) {
@@ -297,7 +301,7 @@
 
     let subtotal = document.createElement("p");
     subtotal.setAttribute("id", "priceQty");
-    console.log(ele.subtotal == undefined);
+    // console.log(ele.subtotal == undefined);
     if (ele.subTotalSum == undefined) {
       subtotal.innerText = ele.price;
     } else {
@@ -337,7 +341,7 @@
     var cartData = JSON.parse(localStorage.getItem("bag")) || [];
     cartData.splice(i, 1);
     localStorage.setItem("bag", JSON.stringify(cartData));
-    window.location.href = "cart.html";
+    window.location.href = "MyCart.html";
   }
 
   function updateSum(qty, price, cartData1, subTotalSum, i) {
