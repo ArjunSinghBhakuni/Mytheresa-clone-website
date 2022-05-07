@@ -105,9 +105,6 @@ subtotalamount.append(container, contaienr_value);
 
 let itemappedingadd = document.querySelector('.add-items-cato-price');
 
-
-
-
 item_bag_form.forEach(({ img: { img1 }, price, title }) => {
     console.log(img1);
     let img_show = document.createElement('img');
