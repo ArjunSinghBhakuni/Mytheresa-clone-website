@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        * {
+            font-weight: 500;
+            color: #757575;
+        }
+
+        #signup_login_details {
+            font-size: 16px;
+            box-sizing: border-box;
+            display: flex;
+            width: 90%;
+            margin: auto;
+        }
+
+
+
+        #left_block {
+            /* border: 1px solid black; */
+            width: 50%;
+            padding: 0px 80px 0px 0px;
+        }
+
+        #right_block {
+            /* border: 1px solid black; */
+            width: 50%;
+            padding: 0px 0px 0px 80px;
+        }
+
+        #login_button {
+            width: 18%;
+            height: 40px;
+            font-size: 16px;
+            margin-top: 20px;
+            background-color: black;
+            color: white;
+        }
+
+        #login_button:hover {
+            border: none;
+            cursor: pointer;
+            background-color: #666;
+        }
+
+        #select_tag {
+            width: 102%;
+            height: 50px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            margin: 10px auto;
+        }
+
+        form * {
+            margin: 10px auto;
+            width: 100%;
+            padding: 10px 0px 10px 10px;
+            font-size: 16px
+        }
+
+        #check {
+            line-height: 25px;
+        }
+
+        input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+            text-decoration: underline;
+        }
+
+        #submit_btn {
+            border: none;
+            width: 120px;
+            height: 40px;
+            font-size: 16px;
+            margin-top: 25px;
+        }
+
+        .i_agree {
+            margin-top: 15px;
+        }
+
+        #submit_btn:hover {
+            background-color: #dfdfdf;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar">
+
+    </div>
+
+
+    <div id="signup_login_details">
+        <div id="left_block">
+            <h3>CREATE AN ACCOUNT</h3>
+            <p>Please enter the following information to create your account.</p>
+            <input id="Ms." name="radio" class="radio_button" type="radio" value="Ms." checked><label
+                for="Ms.">Ms.</label>
+            <input id="Mrs." name="radio" class="radio_button" type="radio" value="Mrs"> <label for="Mrs.">Mrs.</label>
+            <input id="Mr." name="radio" class="radio_button" type="radio" value="Mr."> <label for="Mr.">Mr.</label>
+            <div>
+                <form action="" id="form_submit">
+                    <select name="" id="select_tag" required>
+                        <option value="">academic title</option>
+                        <option value="Dr">Dr</option>
+                        <option value="Prof">Prof</option>
+                        <option value="Prof. Dr.">Prof. Dr.</option>
+                    </select>
+                    <input type="text" placeholder="First name *" id="first_name" class="" value="">
+                    <input type="text" placeholder="Last name *" id="last_name" class="" value="">
+                    <input type="text" placeholder="Email address *" id="email" class="" value="">
+                    <input type="password" placeholder="Password *" id="password" class="" value="">
+                    <input type="password" placeholder="Confirm password *" id="confirm_password" class=""
+                        value="">
+                </form>
+                <div id="check">
+                    <input type="checkbox" id="agr_checkbox" checked style="display: inline;"><span> From now on I
+                        will
+                        receive the Mytheresa
+                        Newsletter with selected
+                        fashion offers. If I do not wish to receive the newsletter, I can unsubscribe at any time
+                        free
+                        of charge at privacy@mytheresa.com.
+                    </span>
+                    <div class="i_agree">I agree that Mytheresa may insert analytical web beacons into the newsletter
+                        and create a
+                        personalized user profile based on my purchase and usage behavior, including sending a
+                        notification when I have placed something in the shopping cart. Further details can be found
+                        in
+                        our Privacy Policy, clause 5. I understand that I can revoke my consent at any time by
+                        emailing
+                        privacy@mytheresa.com.</div>
+                    <div class="i_agree">* required fields</div>
+                    <input type="submit" name="" id="submit_btn" value="Register">
+
+                </div>
+            </div>
+        </div>
+        <div id="right_block">
+            <h3>ALREADY REGISTERED?</h3>
+            <p>If you have an account with us, please log in.</p>
+            <form action="">
+                <input type="text" name="" id="email_login" class="radio_button" placeholder="Email Address *">
+                <input type="password" name="" id="password_login" class="radio_button" placeholder="Password *">
+            </form>
+            <p>* required fields</p>
+            <div><a href="./forgotPassword.html">Forgot Your Password?</a></div>
+            <div><button id="login_button">LOGIN</button></div>
+            <p>At Mytheresa, we keep your information secure. As a result, it will be necessary for you to log in to
+                your account before you are able to place an order or change the information on your account. You will
+                be asked to log in to complete your order even if you have already been greeted on the website.</p>
+        </div>
+    </div>
+
+    <div id="footer"></div>
+
+</body>
+
+</html>
+ 
+<script type="module">
+    // to keep the value unchcked
+    // document.getElementById("agr_checkbox").checked = false
+    // document.getElementById("form_submit").addEventListener("submit", form_submit)
+    import navbar from "./navbar.js"
+
+    document.getElementById("navbar").innerHTML = navbar();
+
+    import footer from "./footer.js"
+    document.getElementById("footer").innerHTML = footer()
+
+
+    document.getElementById("submit_btn").addEventListener("click", submit_btn_fn)
+    function submit_btn_fn() {
+        if (document.getElementById("confirm_password").value == document.getElementById("password").value) {
+            var radios = document.getElementsByName('radio');
+            for (var radio of radios) {
+                if (radio.checked) {
+                    var radio_value = radio.value;
+                }
+            }
+            // console.log(radio_value)
+
+
+
+            let arr = []
+            var obj = {
+                title: document.getElementById("select_tag").value,
+                radio_value: radio_value,
+                first_name: document.getElementById("first_name").value,
+                last_name: document.getElementById("last_name").value,
+                email: document.getElementById("email").value,
+                password: document.getElementById("password").value
+            }
+            if (obj.title == "") {
+                // alert("Hi")
+            }
+            // throw new Error("Something went badly wrong!");
+            // console.log(obj)
+            arr.push(obj)
+            localStorage.setItem("signup_details", JSON.stringify(arr))
+        }
+        else {
+            alert("No")
+        }
+    }
+
+
+    document.getElementById("login_button").addEventListener("click", login_btn)
+    function login_btn() {
+        let data = JSON.parse(localStorage.getItem("signup_details")) || []
+        // console.log(data.email)
+        // console.log(data)
+
+        let login_email = document.getElementById("email_login").value
+        let login_password = document.getElementById("password_login").value
+        // console.log(login_email)
+        let flag = false
+        for (let i = 0; i < data.length; i++) {
+            if (login_email == data[i].email && login_password == data[i].password) {
+                flag = true
+            }
+        }
+        if (flag == true) {
+            alert("login SuccessFull")
+        }
+        else {
+            alert("login failed")
+        }
+    }
+
+
+</script>
