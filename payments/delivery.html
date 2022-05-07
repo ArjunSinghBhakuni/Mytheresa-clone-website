@@ -57,7 +57,6 @@
                             <option value=""disabled selected>academic title</option>
                             <option value=""></option>
                             <option value="">Dr.</option>
-                            <option value="">Dr. Dr.</option>
                             <option value="">Prof. </option>
                             <option value="">Prof Dr.</option>
                         </select><br>
@@ -90,8 +89,8 @@
                             <option value="ic">Iceland</option>
                         </select>
                     <br>
-                    <input type="number" placeholder="mobile phone *" id='mobile' axlength="10">
-                    <div class="danger mobile">This is a required field.</div>
+                    <input type="number" placeholder="mobile phone *" id='mobile' maxlength="10" title="Error Message" pattern="[1-9]{1}[0-9]{9}" required>
+                    <div class="danger mobile">This is a required field.</div><br>
                     <span>* required field</span>
                 </form>
                 <div class="billing-address">

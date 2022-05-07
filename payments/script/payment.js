@@ -6,10 +6,16 @@ let backdelivery = () => {
     window.location.href = 'delivery.html';
 }
 let goconfirm = () => {
-    let lejaao = document.querySelector('#check-avaiblity').value;
+    let lejaao = document.querySelector('.check-avaiblity').value;
     let propaypal = document.querySelector('#payment-paypal').checked;
     let procar = document.querySelector('#payment').checked;
-    window.location.href = 'confirm.html'
+    if (lejaao === '') {
+        document.querySelector('.show-error').style.display = 'block'
+    } else {
+        document.querySelector('.show-error').style.display = 'none';
+        window.location.href = 'confirm.html'
+
+    }
 }
 document.querySelector('#back-to-delivery').addEventListener('click', backdelivery);
 document.querySelector('#go-confirm').addEventListener('click', goconfirm);
@@ -39,6 +45,7 @@ document.querySelector('#payment-paypal').addEventListener('click', anothetakesh
 
 let GoDelivery = () => {
     window.location.href = "delivery.html"
+
 }
 let GoCart = () => {
     window.location.href = "cart.html"
@@ -70,4 +77,4 @@ let alosdosamethings = () => {
 document.querySelector('.logo-container').addEventListener('click', takerelife);
 document.querySelector('.logo-conditions').addEventListener('click', ifornotdoallthisg);
 document.querySelector('.special-kind-of-thing-like-body').addEventListener('click', alosdosamethings);
-document.querySelector('.simply-hidden').addEventListener('click', ifornotdoallthisg)
+document.querySelector('.simply-hidden').addEventListener('click', ifornotdoallthisg);

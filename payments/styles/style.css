@@ -7,6 +7,11 @@
     font-family: Futura-Medium, Century Gothic, Gill Sans, Helvetica, Arial, sans-serif;
 }
 
+.show-error {
+    color: red;
+    display: none;
+}
+
 .top-section {
     display: flex;
     justify-content: center;
