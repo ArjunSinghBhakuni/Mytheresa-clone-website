@@ -65,11 +65,12 @@ let obj = [{
 }];
 // 
 
-
+let item_bag_form = JSON.parse(localStorage.getItem('bag'));
+console.log(item_bag_form);
 
 let subtotalamount = document.querySelector('.subtotal-amount');
-const sumtotal = obj.reduce(function(prev, el, i, arr) {
-    prev += Number(el.price) * Number(el.quantity);
+const sumtotal = item_bag_form.reduce(function(prev, el, i, arr) {
+    prev += Number(el.price) * Number(1);
     return prev
 }, 0)
 let container = document.createElement('div');
@@ -103,22 +104,28 @@ subtotalamount.append(container, contaienr_value);
 
 
 let itemappedingadd = document.querySelector('.add-items-cato-price');
-console.log(itemappedingadd)
-obj.forEach(({ img_items, name, size, item, price, quantity, des }) => {
-    let img = document.createElement('img');
-    img.src = img_items;
+
+
+
+
+item_bag_form.forEach(({ img: { img1 }, price, title }) => {
+    console.log(img1);
+    let img_show = document.createElement('img');
+    img_show.src = img1;
     let box = document.createElement('div');
     let box1 = document.createElement('div');
     let name_show = document.createElement('p');
-    name_show.innerText = name;
+    name_show.innerText = title;
     let size_show = document.createElement('p');
     let another_box = document.createElement('div');
     another_box.setAttribute('class', 'another-box-price')
-    size_show.innerText = `Size: ${size}`;
+    size_show.innerText = `Size: XXL`;
     let items_num = document.createElement('p');
-    items_num.innerText = `item no.: ${item}`;
+    let itmrsds = 12;
+    items_num.innerText = `item no.:PASDEQ25${itmrsds}`;
+    itmrsds++;
     let dec_show = document.createElement('p');
-    dec_show.innerText = des;
+    dec_show.innerText = '';
     let box_all = document.createElement('div');
     box.setAttribute('class', 'right-side-img');
     box1.setAttribute('class', 'right-side-name-container');
@@ -126,16 +133,18 @@ obj.forEach(({ img_items, name, size, item, price, quantity, des }) => {
     let price_show = document.createElement('p');
     price_show.innerText = `€ ${price}`;
     let quantity_show = document.createElement('p');
-    quantity_show.innerText = quantity;
+    quantity_show.innerText = '1';
     let total = document.createElement('p');
-    total.innerText = '€' + Number(price) * Number(quantity);
+    total.innerText = '€ ' + Number(price) * Number(1);
+    //  
     another_box.append(price_show, quantity_show, total)
     let hrtag = document.createElement('hr');
     box1.append(name_show, dec_show, size_show, items_num);
-    box.append(img);
+    box.append(img_show);
 
     box_all.append(box, box1, another_box);
     itemappedingadd.append(box_all, hrtag);
+
 });
 let completecheckout = () => {
 
