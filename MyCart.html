@@ -1,37 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="index.css" />
-    <title>Your Shopping Bag | Mytheresa</title>
-    <link rel="icon" href="https://www.mytheresa.com/skin/frontend/mytheresa/default/favicon.ico">
-    <style>
-      #top {
-        display: flex;
-        justify-content: space-between;
-        margin: 40px;
-      }
-      #top button {
-        margin-top: 40px;
-        width: 250px;
-        height: 40px;
-        color: azure;
-        background-color: black;
-        border: none;
-        cursor: pointer;
-      }
-      #thead {
-        /* border: 1px solid red; */
-        display: flex;
-        justify-content: flex-end;
-      }
-      #thead h4 {
-        margin: 0px 70px;
-      }
 
-      /* #box {
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="index.css" />
+  <link  rel="icon" href="https://www.mytheresa.com/skin/frontend/mytheresa/default/favicon.ico">
+  <title>Your Shopping Bag | Mytheresa</title>
+  <style>
+    #top {
+      display: flex;
+      justify-content: space-between;
+      margin: 40px;
+    }
+
+    #top h2{
+      font-size: medium;
+      font-family: Century Gothic;
+      font-style: normal;
+      color: #000000;
+    }
+
+    #top button {
+      margin-top: 40px;
+      width: 250px;
+      height: 40px;
+      color: azure;
+      background-color: black;
+      border: none;
+      cursor: pointer;
+      font-size: small;
+      font-family: Century Gothic;
+      font-style: normal;
+    }
+
+    #thead {
+      /* border: 1px solid red; */
+      display: flex;
+      justify-content: flex-end;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 15px;
+    }
+
+    #thead h4 {
+      margin: 0px 70px;
+    }
+
+    #midBox{
+      font-size: medium;
+      font-family: Century Gothic;
+      font-style: normal;
+      color: #757575;
+      font-size: 14px;
+    }
+
+    /* #box {
         margin: 10px;
         border: 1px solid red;
         padding: 20px;
@@ -56,157 +80,202 @@
         margin: 10px;
       } */
 
-      .bigCartBox {
-        height: 200px;
-        width: 90%;
-        margin: auto;
-        padding-bottom: 20px;
-        /* border: 1px solid red; */
-      }
+    .mythCartBox {
+      height: 200px;
+      width: 90%;
+      margin: auto;
+      padding-bottom: 20px;
+      /* border: 1px solid red; */
+    }
 
-      .topCartBox {
-        height: 100%;
-        display: flex;
-        justify-content: space-between;
-        /* background-color: rgb(185, 216, 216); */
-      }
+    .mythTopBox {
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+      /* background-color: rgb(185, 216, 216); */
+    }
 
-      .topCartLeft {
-        padding: 10px;
-        display: flex;
-        width: 50%;
-        height: 100%;
-        line-height: 15px;
-        font-size: 15px;
-        /* border: 1px solid blue; */
-      }
-      .cartImage {
-        width: 100%;
-        height: 100%;
-        /* margin-right: 30px; */
-        /* padding-top: 10px; */
-        /* margin-bottom: -100px; */
-      }
-      .topCartLeftPD {
-        padding: 10px;
-      }
-      #remove {
-        color: #1462a9;
-      }
-      #remove:hover {
-        cursor: pointer;
-        color: #3e86c9;
-      }
+    .mythTopLeft {
+      padding: 10px;
+      display: flex;
+      width: 50%;
+      height: 100%;
+      line-height: 15px;
+      font-size: 15px;
+      /* border: 1px solid blue; */
+    }
 
-      .topCartCenter {
-        justify-content: space-between;
-        width: 40%;
-        display: flex;
-        /* border: 1px solid blue; */
-      }
+    .mythCartImage {
+      width: 100%;
+      height: 100%;
+      /* margin-right: 30px; */
+      /* padding-top: 10px; */
+      /* margin-bottom: -100px; */
+    }
 
-      .topCartCenter h4 {
-        margin: 10px 0px 10px 40px;
-        /* padding: 5px; */
-      }
-      .topCartBox .quantityBox {
-        /* border: 1px solid red; */
-        width: 100px;
-        margin: 10px;
-      }
-      .topCartCenter .qtBox {
-        margin: 1px 20px;
-        padding: 5px;
-        width: 25px;
-        height: 20px;
-        text-align: center;
-      }
-      .topCartCenter .qtButton {
-        margin: 5px 0px;
-        width: 80px;
-        height: 25px;
-        text-align: center;
-      }
+    .mythTopLeftPD {
+      padding: 10px;
+      font-family: Arial;
+      font-size: 15px;
+    }
 
-      #totalSum {
-        margin-left: 200px;
-      }
-      #midBox {
-        width: 95%;
-        margin: auto;
-      }
+    #remove {
+      color: black;
+    }
 
-      #bottomCartBox1 {
-        padding: 10px;
-        margin: auto;
-        display: flex;
-        width: 95%;
-        /* border: 2px solid red; */
-        justify-content: space-between;
-      }
-      #bottomCartBox2 {
-        margin: auto;
-        display: flex;
-        width: 94%;
-        /* border: 2px solid red; */
-        justify-content: space-between;
-      }
-      #bottomCartBox2 button {
-        height: 40px;
-        width: 250px;
-        border: none;
-      }
-      #bottomCartBox2 button:nth-last-child(1) {
-        height: 40px;
-        width: 250px;
-        border: none;
-        background-color: black;
-        color: azure;
-        cursor: pointer;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="navbar"></div>
+    #remove:hover {
+      cursor: pointer;
+      color: red;
+    }
 
-    <div id="top">
-      <h2>YOUR SHOPPING BAG</h2>
+    .mythTopCenter {
+      justify-content: space-between;
+      width: 40%;
+      display: flex;
+      /* border: 1px solid blue; */
+      font-family: Arial;
+      font-size: 15px;
+      font-style: normal;
+    }
+
+    .mythTopCenter h4 {
+      margin: 10px 0px 10px 40px;
+      font-family: Arial;
+      font-size: 15px;
+      font-style: normal;
+      /* padding: 5px; */
+    }
+
+    .mythTopBox .quantityBox {
+      /* border: 1px solid red; */
+      width: 100px;
+      margin: 10px;
+      font-family: Arial;
+      font-size: 15px;
+      font-style: normal;
+    }
+
+    .mythTopCenter .qtBox {
+      margin: 1px 20px;
+      padding: 5px;
+      width: 25px;
+      height: 20px;
+      text-align: center;
+      font-family: Arial;
+      font-size: 15px;
+      font-style: normal;
+    }
+
+    .mythTopCenter .qtButton {
+      margin: 5px 0px;
+      width: 80px;
+      height: 25px;
+      text-align: center;
+      font-family: Arial;
+      font-size: 15px;
+      font-style: normal;
+    }
+
+    #totalSum {
+      margin-left: 200px;
+      font-family: Arial;
+      font-size: 15px;
+      font-style: normal;
+    }
+
+    #midBox {
+      width: 95%;
+      margin: auto;
+      font-family: Arial;
+      font-size: 15px;
+      font-style: normal;
+    }
+
+    #bottomCartBox1 {
+      padding: 10px;
+      margin: auto;
+      display: flex;
+      width: 95%;
+      /* border: 2px solid red; */
+      justify-content: space-between;
+      font-size: 15px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-style: normal;
+      color: #000000;
+    }
+
+    #bottomCartBox2 {
+      margin: auto;
+      display: flex;
+      width: 94%;
+      /* border: 2px solid red; */
+      justify-content: space-between;
+    }
+
+    #bottomCartBox2 button {
+      height: 40px;
+      width: 250px;
+      border: none;
+      font-size: small;
+      font-family: Century Gothic;
+      font-style: normal;
+      color: #000000;
+      cursor: pointer;
+    }
+
+    #bottomCartBox2 button:nth-last-child(1) {
+      height: 40px;
+      width: 250px;
+      border: none;
+      background-color: black;
+      color: azure;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="navbar"></div>
+
+  <div id="top">
+    <h2>YOUR SHOPPING BAG</h2>
+    <button onclick="checkingOut()">PROCEED TO CHECKOUT</button>
+  </div>
+  <div id="thead">
+    <h4>Price</h4>
+    <h4>Quantity</h4>
+    <h4>Subtotal</h4>
+  </div>
+  <hr />
+  <div id="container"></div>
+  <hr />
+  <div id="midBox">
+    <h3>YOUR CURRENT PROMOTIONS</h3>
+    <h4>Free shipping</h4>
+  </div>
+  <hr />
+  <div id="bottomCartBox">
+    <div id="bottomCartBox1">
+      <div>
+        <input type="text" placeholder="Gift Card/Store Credit/Promo Code" />
+        <button>USECODE</button>
+      </div>
+      <div>
+        <!-- <h4>Subtotal</h4> -->
+        <h4 id="grandTotal">Grand Total <span id="totalSum"></span></h4>
+        <p>VAT exception. VAT not included. Shipping not included.</p>
+      </div>
+    </div>
+    <div id="bottomCartBox2">
+      <button onclick="contShop()">CONTINUE SHOPPING</button>
       <button onclick="checkingOut()">PROCEED TO CHECKOUT</button>
     </div>
-    <div id="thead">
-      <h4>Price</h4>
-      <h4>Quantity</h4>
-      <h4>Subtotal</h4>
-    </div>
-    <hr />
-    <div id="container"></div>
-    <hr />
-    <div id="midBox">
-      <h3>YOUR CURRENT PROMOTIONS</h3>
-      <h4>Free shipping</h4>
-    </div>
-    <hr />
-    <div id="bottomCartBox">
-      <div id="bottomCartBox1">
-        <div>
-          <input type="text" placeholder="Gift Card/Store Credit/Promo Code" />
-          <button>USECODE</button>
-        </div>
-        <div>
-          <!-- <h4>Subtotal</h4> -->
-          <h4 id="grandTotal">Grand Total <span id="totalSum"></span></h4>
-          <p>VAT exception. VAT not included. Shipping not included.</p>
-        </div>
-      </div>
-      <div id="bottomCartBox2">
-        <button onclick="contShop()">CONTINUE SHOPPING</button>
-        <button onclick="checkingOut()">PROCEED TO CHECKOUT</button>
-      </div>
-    </div>
-    <hr />
+  </div>
+  <hr />
 
-    <div id="footer"></div>
-  </body>
+  <div id="footer"></div>
+</body>
+
 </html>
 
 <script type="module">
@@ -245,32 +314,32 @@
   }
 
   cartData.map(function (ele, i) {
-    let bigCartBox = document.createElement("div");
-    bigCartBox.setAttribute("class", "bigCartBox");
+    let mythCartBox = document.createElement("div");
+    mythCartBox.setAttribute("class", "mythCartBox");
 
-    let topCartBox = document.createElement("div");
-    topCartBox.setAttribute("class", "topCartBox");
+    let mythTopBox = document.createElement("div");
+    mythTopBox.setAttribute("class", "mythTopBox");
 
-    let topCartLeft = document.createElement("div");
-    topCartLeft.setAttribute("class", "topCartLeft");
+    let mythTopLeft = document.createElement("div");
+    mythTopLeft.setAttribute("class", "mythTopLeft");
 
-    let topCartLeftImage = document.createElement("div");
+    let mythTopLeftImage = document.createElement("div");
 
-    let cartImage = document.createElement("img");
-    cartImage.src = ele.img.img1;
-    cartImage.setAttribute("class", "cartImage");
+    let mythCartImage = document.createElement("img");
+    mythCartImage.src = ele.img.img1;
+    mythCartImage.setAttribute("class", "mythCartImage");
 
-    let topCartLeftPD = document.createElement("div");
-    topCartLeftPD.setAttribute("class", "topCartLeftPD");
+    let mythTopLeftPD = document.createElement("div");
+    mythTopLeftPD.setAttribute("class", "mythTopLeftPD");
 
-    let named = document.createElement("p");
-    named.innerText = ele.title;
+    let name = document.createElement("p");
+    name.innerText = ele.title;
 
     let type = document.createElement("p");
     type.innerText = ele.category;
 
-    let sized = document.createElement("p");
-    sized.innerText = "Size: IT- 48 / M";
+    let size = document.createElement("p");
+    size.innerText = "Size: IT- 48 / M";
 
     let itemno = document.createElement("p");
     itemno.innerText = "Item No.:P00674241";
@@ -282,8 +351,8 @@
       removeItemFunction(ele, i);
     });
 
-    let topCartCenter = document.createElement("div");
-    topCartCenter.setAttribute("class", "topCartCenter");
+    let mythTopCenter = document.createElement("div");
+    mythTopCenter.setAttribute("class", "mythTopCenter");
 
     let priced = document.createElement("h4");
     // priced.setAttribute("id","priceQty")
@@ -331,13 +400,13 @@
     }
 
     quantityBox.append(qty, qtyBtn);
-    topCartCenter.append(priced, quantityBox, subtotal);
-    topCartLeftPD.append(named, type, sized, itemno, remove);
-    topCartLeftImage.append(cartImage);
-    topCartLeft.append(topCartLeftImage, topCartLeftPD);
-    topCartBox.append(topCartLeft, topCartCenter);
-    bigCartBox.append(topCartBox);
-    document.querySelector("#container").append(bigCartBox);
+    mythTopCenter.append(priced, quantityBox, subtotal);
+    mythTopLeftPD.append(name, type, size, itemno, remove);
+    mythTopLeftImage.append(mythCartImage);
+    mythTopLeft.append(mythTopLeftImage, mythTopLeftPD);
+    mythTopBox.append(mythTopLeft, mythTopCenter);
+    mythCartBox.append(mythTopBox);
+    document.querySelector("#container").append(mythCartBox);
   });
 
   function removeItemFunction(ele, i) {

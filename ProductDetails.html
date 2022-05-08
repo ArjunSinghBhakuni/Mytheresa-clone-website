@@ -6,9 +6,9 @@
     <title>Your Product | Mytheresa</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link  rel="icon" href="https://www.mytheresa.com/skin/frontend/mytheresa/default/favicon.ico">
     <link rel="stylesheet" href="index.css">
     <script src="https://kit.fontawesome.com/24c494a6b6.js" crossorigin="anonymous"></script>
-    <link rel="icon" href="https://www.mytheresa.com/skin/frontend/mytheresa/default/favicon.ico">
 
     <style>
         /* html,
@@ -101,11 +101,56 @@
             /* border: 1px solid red; */
         }
 
+        #right #brand{
+            font-family: "Century Gothic";
+            font-size: 22px;
+            font-weight: 400;
+            font-style: normal; 
+            line-height: 20px;
+        }
+
+        #right #name{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            font-style: normal;
+            color: #757575; 
+            line-height: 20px;
+        }
+
+        #right #price{
+            font-family: "Roboto Mono";
+            font-size: 20px;
+            font-weight: 800;
+            font-style: normal;
+            color: #757575; 
+            line-height: 5px;
+        }
+
+        #right p{
+            font-family: "Roboto Mono";
+            font-size: 15px;
+            font-weight: 400;
+            font-style: normal;
+            color: #757575; 
+            line-height: 20px;
+            letter-spacing: 1px;
+        }
+
         #options {
             width: 200px;
             height: 30px;
             text-align: center;
             border: 2px solid whitesmoke;
+            cursor: pointer;
+        }
+
+        #size{
+            margin: 0px 20px;
+            height: 30px;
+            background-color: #fefefe;
+            border: none;
+            cursor: pointer;
         }
 
         #right #bag {
@@ -115,6 +160,7 @@
             color: white;
             background-color: black;
             border: none;
+            cursor: pointer;
         }
 
         #right #wish {
@@ -123,6 +169,7 @@
             height: 30px;
             background-color: whitesmoke;
             border: none;
+            cursor: pointer;
         }
 
         .accordion {
@@ -149,8 +196,27 @@
             overflow: hidden;
         }
 
+        .panel li{
+            list-style-type: disc;
+            color: #000;
+            font-family: "Roboto Mono";
+            font-size: 15px;
+            font-weight: 400;
+            font-style: normal;
+            color: #757575; 
+            /* line-height: 20px; */
+            letter-spacing: 1px;
+        }
+
+        #hoverS{
+            cursor: pointer;
+        }
+
         #social-media {
             display: flex;
+            justify-content: space-between;
+            width: 15%;
+            cursor: pointer;
         }
 
         h5 {
@@ -184,6 +250,7 @@
 
         .slide {
             text-align: center;
+            font-weight: bold;
         }
 
         @media (max-width: 440px) {
@@ -196,7 +263,7 @@
             }
         }
 
-        .modal {
+        .modal, .modal2 {
             display: none;
             position: fixed;
             z-index: 1;
@@ -212,8 +279,7 @@
 
         }
 
-
-        .modal-content {
+        .modal-content, .modal-content2{
             background-color: #fefefe;
             margin: auto;
             padding: 20px;
@@ -222,7 +288,8 @@
             height: 300px;
         }
 
-        .modal-content p {
+        .modal-content p,
+        .modal-content2 p {
             text-align: center;
         }
 
@@ -256,7 +323,7 @@
             border: none;
         }
 
-        .close {
+        .close, .close2 {
             color: #aaaaaa;
             float: right;
             font-size: 28px;
@@ -264,10 +331,17 @@
         }
 
         .close:hover,
-        .close:focus {
+        .close:focus,
+        .close2:hover,
+        .close2:focus{
             color: #000;
             text-decoration: none;
             cursor: pointer;
+        }
+
+        .modal-content2 img{
+            width: 100%;
+            height: 90%;
         }
     </style>
 </head>
@@ -309,39 +383,42 @@
                 <option>XL</option>
                 <option>XXL</option>
             </select><br />
-            <button id="bag" onclick="addtoBag()">ADD TO SHOPPING BAG</button><br />
+            <div id="sizeCart">
+                <button id="bag" onclick="addtoBag()">ADD TO SHOPPING BAG</button>
+                <button id="size" onclick="sizeChart()"><u>open size chart</u></button>
+            </div>
+            <!-- <button id="bag" onclick="addtoBag()">ADD TO SHOPPING BAG</button><br /> -->
             <button id="wish" onclick="addtowish()">ADD TO WISHLIST</button>
-            <p><i class="fa-solid fa-truck"></i> Shipping Today</p>
+            <p><span style="font-weight: 600; color:#000">Free shipping </span>on all orders for a limited time only</p>
+            <p><i class="fa-solid fa-truck"></i><span style="font-weight: 600; color:#000"> Shipping Today</span> </p>
             <p>
                 If placed within the next tomorrow hour and 12 minutes, your order
-                will be shipped today.
+                will be shipped today.  <i class="fa-solid fa-circle-info"></i>
             </p>
             <hr />
             <button class="accordion">style details</button>
             <div class="panel">
                 <p>Tailored in Italy from wool, this single-breasted design has a shawl lapel and is
-                    finished with gold-toned accents and the brand's Web label.
-                    material: 100% wool
-                    details: 80% polyester, 20% metallic fibres
-                    lining: 100% viscose, fully lined
-                    sleeve lining: 100% cupro, fully lined
-                    care instructions: dry clean
-                    slit pockets, breast pocket, internal pockets
-                    buttoned front
-                    Made in Italy
-                    buttoned cuffs
-                    Designer colour name: Cornsilk</p>
+                    finished with gold-toned accents and the brand's Web label.<br>
+                   <li>material: 100% wool</li> <br>
+                    <li>details: 80% polyester, 20% metallic fibres</li> <br>
+                    <li>lining: 100% viscose, fully lined</li> <br>
+                    <li>sleeve lining: 100% cupro, fully lined</li> <br>
+                    <li>care instructions: dry clean slit pockets, internal pockets,
+                        buttoned front</li> <br>
+                    <li>Made in Italy</li> <br>
+                    <li>Designer colour name: Cornsilk</li></p>
             </div>
 
             <button class="accordion">size & fit</button>
             <div class="panel">
-                <p>True to size
-                    Shoulder pad inserts
-                    Slim fit
-                    Mid-weight material
-                    Falls to the hip
-                    The model in the picture is 185cm-6'1" and wearing a size IT 48
-                    If you have any questions, please call our customer care team at +49 89 127695-101
+                <p><li>True to size</li> <br>
+                   <li>Shoulder pad inserts</li> <br> 
+                   <li>Slim fit</li> <br> 
+                   <li>Mid-weight material</li> <br> 
+                   <li>Falls to the hip</li> <br> 
+                   <li>The model in the picture is 185cm-6'1" and wearing a size IT 48</li> <br> 
+                   <li>If you have any questions, please call our customer care team at +49 89 127695-101</li> 
                 </p>
             </div>
 
@@ -349,18 +426,20 @@
             <div class="panel">
                 <p>All orders are shipped worldwide via our affiliate courier DHL.
                     Please see the shipping method as well as shipping costs and delivery times for your destination
-                    here.
-                    We gladly accept returns within 30 days of receipt free of charge. Read here.</p>
+                    <u>here</u>.<br>
+                    We gladly accept returns within 30 days of receipt free of charge. Read <u>here</u>.</p>
             </div>
-            <p>More questions about this item?</p>
-            <p>See more Brunello Cucinelli</p>
-            <p>See more Shoes by Brunello Cucinelli</p>
-            <p>See more Loafers</p>
-            <p>See more Vacation Essentials</p>
+            <div id="hoverS">
+                <p>More questions about this item?</p>
+                <p>See more Brunello Cucinelli</p>
+                <p>See more Shoes by Brunello Cucinelli</p>
+                <p>See more Loafers</p>
+                <p>See more Vacation Essentials</p>
+            </div>
             <div id="social-media">
-                <div><i class="fa-brands fa-facebook"></i></div>
-                <div><i class="fa-brands fa-twitter-square"></i></div>
-                <div><i class="fa-brands fa-pinterest"></i></div>
+                <div><i class="fa-brands fa-facebook fa-lg"></i></div>
+                <div><i class="fa-brands fa-twitter-square fa-lg"></i></div>
+                <div><i class="fa-brands fa-pinterest fa-lg"></i></div>
             </div>
         </div>
     </div>
@@ -413,6 +492,13 @@
                     <!-- <h4 class="product_price" id="price"></h4> -->
                 </div>
             </div>
+        </div>
+    </div>
+    <div id="myModal2" class="modal2">
+        <div class="modal-content2">
+            <span class="close2">×</span>
+            <p>SIZE CHART</p>
+            <img id="imgY" src="https://i.postimg.cc/yNjpz3Cw/size22.jpg" alt="">
         </div>
     </div>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
@@ -504,7 +590,7 @@
 
     document.getElementById("brand").innerText = data.title;
     document.getElementById("name").innerText = data.category;
-    document.getElementById("price").innerText = `€ ${data.price}`;
+    document.getElementById("price").innerText = `€ ${  data.price}`;
 
     document.getElementById("imgX").src = data.img.img1;
     document.getElementById("brandX").innerText = data.title;
@@ -535,6 +621,10 @@
     var btn = document.getElementById("bag");
     var span = document.getElementsByClassName("close")[0];
 
+    var modal2 = document.getElementById("myModal2");
+    var btn2 = document.getElementById("size");
+    var span2 = document.getElementsByClassName("close2")[0];
+
     // btn.onclick = function () {
     //     modal.style.display = "block";
     // };
@@ -546,6 +636,20 @@
     window.onclick = function (event) {
         if (event.target == modal) {
             modal.style.display = "none";
+        }
+    };
+
+    btn2.onclick = function () {
+        modal2.style.display = "block";
+    };
+
+    span2.onclick = function () {
+        modal2.style.display = "none";
+    };
+
+    window.onclick = function (event) {
+        if (event.target == modal2) {
+            modal2.style.display = "none";
         }
     };
 </script>
