@@ -1,6 +1,5 @@
 # Mytheresa-clone-website
 
-Blog: 
 
 Github ripository: https://github.com/ArjunSinghBhakuni/Mytheresa-clone-website
 
