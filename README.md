@@ -36,7 +36,7 @@ Constrct Week Video: https://drive.google.com/file/d/1NsrF6BeWPTwj532zzj3kdiOY0i
 ### _Following are the Screenshots for the reference_
 
 - **Landing Page**
-  ![Landing Page](https://i.postimg.cc/ncs2YkxM/Screenshot-542.png)
+  ![Landing Page](https://i.postimg.cc/vHs6CJQ8/Screenshot-618.png)
 
 - **Log-in Page**
 
