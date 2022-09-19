@@ -9,13 +9,6 @@ This was a collaborative project made by 4 members Executed in 5 days.
 6) Sagar
 
   Deploy Link -Netlify:https://eclectic-paletas-0001f4.netlify.app/
- 
-
-  Github ripository: https://github.com/ArjunSinghBhakuni/Mytheresa-clone-website
-
-
-
- 
 
 ---
 
