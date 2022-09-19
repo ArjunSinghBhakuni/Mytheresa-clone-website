@@ -8,10 +8,10 @@ This was a collaborative project made by 4 members Executed in 5 days.
 5) Arun Rajwar
 6) Sagar
 
-# Deploy Link -Netlify:https://eclectic-paletas-0001f4.netlify.app/
+  Deploy Link -Netlify:https://eclectic-paletas-0001f4.netlify.app/
  
 
-# Github ripository: https://github.com/ArjunSinghBhakuni/Mytheresa-clone-website
+  Github ripository: https://github.com/ArjunSinghBhakuni/Mytheresa-clone-website
 
 
 
